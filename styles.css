@@ -2257,6 +2257,114 @@ h1, h2, h3, h4, h5 {
   height: 0 !important;
 }
 
+/* Brand Logo Mark in Navbar */
+.brand-logo-img {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  display: block;
+}
+
+/* Infografis Alur Kerja Showcase */
+.infografis-showcase {
+  margin-bottom: 2.5rem;
+}
+
+.infografis-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.infografis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -4px rgba(0, 30, 82, 0.12);
+}
+
+.infografis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--divider-subtle);
+}
+
+.infografis-title-wrap h3 {
+  font-size: 1.25rem;
+  color: var(--navy-primary);
+  margin-top: 0.35rem;
+}
+
+.infografis-img-wrap {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--navy-dark);
+  box-shadow: 0 4px 16px rgba(0, 30, 82, 0.12);
+}
+
+.infografis-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.4s ease;
+}
+
+.infografis-card:hover .infografis-img {
+  transform: scale(1.008);
+}
+
+.infografis-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* Persona Visual Previews */
+.persona-preview-wrap {
+  margin: 1.25rem 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 30, 82, 0.08);
+  background: #001233;
+}
+
+.persona-feature-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.35s ease;
+}
+
+.persona-box:hover .persona-feature-img {
+  transform: scale(1.02);
+}
+
+.persona-img-caption {
+  padding: 0.5rem 0.75rem;
+  background-color: #f8f9fc;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-top: 1px solid var(--divider-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .flow-steps-track {

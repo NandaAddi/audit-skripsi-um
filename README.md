@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og-image.png" alt="Audit Skripsi UM — AI Companion Banner" width="100%" />
+<img src="assets/img/banner-utama.png" alt="Audit Skripsi UM — AI Companion Banner" width="100%" />
 <br><br>
 
 # 🎓 Audit Skripsi UM — AI Companion & Simulasi Sidang Skripsi
@@ -28,6 +28,14 @@ Banyak mahasiswa tingkat akhir mengalami revisi berulang kali atau kesulitan saa
 4. **Kecerobohan Bahasa:** Penggunaan kata non-baku (*aktifitas, merubah*), konjungsi terlarang di awal kalimat (*Sehingga, Sedangkan*), dan frasa subjektif (*"peneliti melakukan"*).
 
 Repositori ini hadir sebagai **sarana belajar mandiri** untuk membantu mahasiswa mendeteksi kelemahan naskah sejak dini, merekonstruksi kalimat ilmiah secara terstandar, dan melatih mental menjawab pertanyaan dosen penguji sebelum maju ke ruang sidang yang sesungguhnya.
+
+### 🗺️ Infografis Alur Penelaahan & Simulasi Sidang
+
+<p align="center">
+  <a href="assets/img/infografis-alur-kerja.png" target="_blank">
+    <img src="assets/img/infografis-alur-kerja.png" alt="Infografis Alur Kerja Audit Skripsi UM" width="100%" style="border-radius: 10px; max-width: 880px;" />
+  </a>
+</p>
 
 ---
 
@@ -100,10 +108,22 @@ python skills/audit-skripsi/scripts/audit_cli.py "path/ke/naskah.docx" --stage s
 - 🔴 **Mode Sidang Killer (`/sidang`):** Memerankan dosen penguji senior UM (*Prof. Dr. Evaluator, M.Pd.*). Menguji benang merah secara dingin, menyerang cacat logika per ronde, dan menerbitkan **Kartu Nilai Sidang resmi UM** di akhir ujian.
 - 🟢 **Mode Bimbingan Edukatif (`/bimbingan`):** Memerankan dosen pembimbing (*Dr. Pembimbing Solutif, M.Pd.*). Menyajikan perbaikan kalimat ramah dengan **Formula 4-Bagian Rekonstruksi Ilmiah**.
 
-### 2. Deteksi Otomatis 3 Dimensi Naskah
+<p align="center">
+  <a href="assets/img/fitur-simulasi-sidang.png" target="_blank">
+    <img src="assets/img/fitur-simulasi-sidang.png" alt="Visual Fitur Simulasi Ujian Sidang Skripsi UM" width="88%" style="border-radius: 8px; max-width: 760px;" />
+  </a>
+</p>
+
+### 2. Deteksi Otomatis 3 Dimensi Naskah &amp; Rasio Rujukan 80%
 - **Jenis Penelitian:** Kuantitatif, Kualitatif, R&D, atau PTK.
 - **Tahapan Naskah:** Proposal Skripsi (Bab 1–3), Naskah Lengkap Skripsi (Bab 1–5/6 + Lampiran), atau Ringkasan Artikel Jurnal UM.
 - **Jenjang Studi:** Sarjana S1 (maks 15.000 kata), Magister S2 (maks 20.000 kata), atau Doktor S3 (maks 30.000 kata).
+
+<p align="center">
+  <a href="assets/img/fitur-audit-benang-merah.png" target="_blank">
+    <img src="assets/img/fitur-audit-benang-merah.png" alt="Visual Fitur Audit Benang Merah & Rasio Jurnal 80%" width="82%" style="border-radius: 8px; max-width: 680px;" />
+  </a>
+</p>
 
 ### 3. Formula 4-Bagian Rekonstruksi Kalimat Ilmiah
 Setiap kritik naskah tidak sekadar memberi komentar umum, melainkan diformulasikan ke dalam 4 bagian:
