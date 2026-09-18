@@ -1095,6 +1095,9 @@ h1, h2, h3, h4, h5 {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: all 0.15s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .quick-chip:hover {

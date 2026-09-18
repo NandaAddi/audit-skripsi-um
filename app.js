@@ -129,47 +129,54 @@ Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmia
   },
   3: {
     badge: "Langkah 03 dari 04",
-    title: "Unggah Berkas Pedoman & Modul ke Knowledge",
+    title: "Unggah 5 Berkas Acuan Terpisah ke Knowledge",
     desc: `
       <ol class="sim-steps-list">
-        <li><strong>Pilih Berkas Knowledge:</strong> Disediakan berkas <em>All-in-One (.md)</em> yang sudah menggabungkan Buku Pedoman + Rubrik 8 Dimensi + Kamus Kata Baku + Skala Nilai Sidang (atau unduh <em>Paket 5 File .zip</em>).</li>
-        <li><strong>Buka Project Knowledge:</strong> Pada panel <strong>Project Knowledge</strong> di project Claude Anda, klik <strong>Add content / Files</strong>.</li>
-        <li><strong>Unggah Berkas:</strong> Masukkan file tersebut. Claude akan mengindeks seluruh kriteria rubrik nilai, kamus tata bahasa baku, dan skala ujian sidang sebagai otak analisis naskah Anda.</li>
+        <li><strong>Unduh 5 Berkas Terpisah:</strong> Unduh kelima berkas Markdown acuan (Buku Pedoman, Rubrik 8 Dimensi, Kamus Kata Baku, Skala Nilai Sidang, dan Pedoman Artikel) di bawah ini. Masing-masing berkas sengaja dipisahkan agar pemetaan konteks analisis Claude menjadi spesifik dan jelas.</li>
+        <li><strong>Buka Project Knowledge:</strong> Pada ruang kerja Project Claude Anda, temukan panel <strong>Project Knowledge</strong> lalu klik <strong>Add content / Files</strong>.</li>
+        <li><strong>Unggah Kelima Berkas:</strong> Masukkan atau seret kelima berkas <code>.md</code> tersebut. Claude akan mengindeks masing-masing berkas sebagai dasar evaluasi naskah Anda.</li>
       </ol>
     `,
-    actionType: "download_multi",
+    actionType: "download_separate",
     urlBar: "claude.ai/project/audit-skripsi-um/knowledge",
     mockup: `
       <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
           <h5 style="margin: 0; font-size: 0.9rem;">Project Knowledge</h5>
-          <span class="tag tag-navy" style="font-size: 0.7rem;">5 Modul Terindeks</span>
+          <span class="tag tag-navy" style="font-size: 0.7rem;">5 Berkas Terpisah Terunggah</span>
         </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
+        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
           <div class="file-info">
-            <h6 style="font-size: 0.8rem;">Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
-            <span style="font-size: 0.7rem;">147 KB • Buku Pedoman Utama Edisi Keenam</span>
+            <h6 style="font-size: 0.785rem;">Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
+            <span style="font-size: 0.685rem;">147 KB • Buku Pedoman Utama Edisi Keenam</span>
           </div>
           <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
+        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
           <div class="file-info">
-            <h6 style="font-size: 0.8rem;">rubrik-audit-um2017.md</h6>
-            <span style="font-size: 0.7rem;">10 KB • Rubrik Penilaian 8 Dimensi UM</span>
+            <h6 style="font-size: 0.785rem;">rubrik-audit-um2017.md</h6>
+            <span style="font-size: 0.685rem;">10 KB • Rubrik Penilaian 8 Dimensi UM</span>
           </div>
           <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
+        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
           <div class="file-info">
-            <h6 style="font-size: 0.8rem;">kamus-tata-bahasa-ilmiah.md</h6>
-            <span style="font-size: 0.7rem;">9 KB • 100+ Pasangan Kata Baku & Sintaksis</span>
+            <h6 style="font-size: 0.785rem;">kamus-tata-bahasa-ilmiah.md</h6>
+            <span style="font-size: 0.685rem;">9 KB • 100+ Pasangan Kata Baku & Sintaksis</span>
           </div>
           <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
-        <div class="mockup-file-card" style="padding: 0.55rem 0.85rem;">
+        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
           <div class="file-info">
-            <h6 style="font-size: 0.8rem;">skala-penilaian-sidang-um.md</h6>
-            <span style="font-size: 0.7rem;">8 KB • Standar Nilai Mutu A-E & Lembar Sidang</span>
+            <h6 style="font-size: 0.785rem;">skala-penilaian-sidang-um.md</h6>
+            <span style="font-size: 0.685rem;">8 KB • Standar Nilai Mutu A-E & Lembar Sidang</span>
+          </div>
+          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+        </div>
+        <div class="mockup-file-card" style="padding: 0.5rem 0.8rem;">
+          <div class="file-info">
+            <h6 style="font-size: 0.785rem;">panduan-artikel-jurnal-um.md</h6>
+            <span style="font-size: 0.685rem;">6 KB • Format Publikasi Jurnal IMRAD</span>
           </div>
           <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
@@ -279,15 +286,17 @@ function renderGuideStep(stepNum) {
           copyText(CLAUDE_CUSTOM_INSTRUCTIONS, "Instruksi Claude berhasil disalin ke clipboard.");
         });
       }
-    } else if (step.actionType === "download_multi") {
+    } else if (step.actionType === "download_separate") {
       actionAreaEl.innerHTML = `
-        <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
-          <a href="Pedoman-dan-Pengetahuan-Audit-UM-2017-Lengkap.md" download class="btn btn-navy btn-sm">
-            Unduh Berkas Lengkap All-in-One (.md)
-          </a>
-          <a href="paket-knowledge-audit-skripsi-um.zip" download class="btn btn-muted btn-sm">
-            Unduh Paket 5 File (.zip)
-          </a>
+        <div class="quick-chips-wrap">
+          <span class="chips-label">Unduh 5 berkas acuan terpisah (.md):</span>
+          <div class="quick-chips-grid">
+            <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="quick-chip">1. Buku Pedoman UM (.md)</a>
+            <a href="rubrik-audit-um2017.md" download class="quick-chip">2. Rubrik 8 Dimensi (.md)</a>
+            <a href="kamus-tata-bahasa-ilmiah.md" download class="quick-chip">3. Kamus Kata Baku (.md)</a>
+            <a href="skala-penilaian-sidang-um.md" download class="quick-chip">4. Skala Sidang (.md)</a>
+            <a href="panduan-artikel-jurnal-um.md" download class="quick-chip">5. Pedoman Artikel (.md)</a>
+          </div>
         </div>
       `;
     } else if (step.actionType === "download") {
