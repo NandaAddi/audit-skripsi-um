@@ -22,17 +22,16 @@
 
       <nav>
         <ul class="nav-menu">
-          <li><a href="#fokus-telaah">Fokus Evaluasi</a></li>
+          <li><a href="#panduan-claude">Panduan Claude</a></li>
+          <li><a href="#berkas-unduhan">Berkas Unduhan</a></li>
+          <li><a href="#fokus-telaah">Fokus Telaah</a></li>
           <li><a href="#perbandingan">Contoh Naskah</a></li>
-          <li><a href="#pendekatan">Pendekatan</a></li>
-          <li><a href="#berkas-unduhan">Unduhan & Prompt</a></li>
-          <li><a href="#langkah-pakai">Panduan</a></li>
           <li><a href="#tanya-jawab">Tanya Jawab</a></li>
         </ul>
       </nav>
 
       <div>
-        <a href="#berkas-unduhan" class="btn btn-navy btn-sm">Salin Prompt AI</a>
+        <a href="#panduan-claude" class="btn btn-navy btn-sm">Mulai Panduan</a>
       </div>
     </div>
   </header>
@@ -42,22 +41,22 @@
     <div class="container hero-layout">
       <div class="hero-text-col">
         <div class="hero-badge-wrap">
-          <span class="tag tag-navy">Inisiatif Terbuka Civitas Akademika UM</span>
+          <span class="tag tag-navy">Khusus Ruang Kerja Claude.ai • Standar UM 2017</span>
         </div>
         <h1 class="hero-heading">
           Penelaahan Mandiri Naskah Skripsi dan <span>Persiapan Sidang.</span>
         </h1>
         <p class="hero-description">
-          Disusun berdasarkan Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (Edisi Keenam, 2017). Membantu mahasiswa memeriksa keselarasan logika penelitian, rasio rujukan primer, dan tata bahasa baku sebelum diajukan ke pembimbing maupun dewan penguji.
+          Disusun berdasarkan Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (Edisi Keenam, 2017). Dioptimalkan khusus untuk ruang kerja Claude.ai Projects agar mahasiswa dapat memeriksa keselarasan logika penelitian, rasio rujukan primer, dan latihan tanya-jawab sidang secara mandiri.
         </p>
 
         <div class="hero-cta-group">
-          <button id="btnHeroCopy" class="btn btn-navy">
+          <a href="#panduan-claude" class="btn btn-navy">
+            Ikuti Panduan Visual
+          </a>
+          <button id="btnHeroCopy" class="btn btn-muted">
             Salin Instruksi Claude
           </button>
-          <a href="#perbandingan" class="btn btn-muted">
-            Lihat Contoh Perbaikan
-          </a>
           <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-muted">
             Unduh Pedoman (.md)
           </a>
@@ -79,6 +78,36 @@
           <div class="metric">
             <h4>Alinea Naratif</h4>
             <p>Bentuk Baku Simpulan</p>
+          </div>
+        </div>
+
+        <!-- 3-Step Quick Process Track -->
+        <div class="hero-flow-banner">
+          <div class="flow-banner-title">Alur Ringkas Penggunaan di Claude.ai:</div>
+          <div class="flow-steps-track">
+            <div class="flow-step-item">
+              <span class="flow-num">1</span>
+              <div class="flow-text">
+                <strong>Buat Project Baru</strong>
+                <span>di situs claude.ai</span>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step-item">
+              <span class="flow-num">2</span>
+              <div class="flow-text">
+                <strong>Pasang Instruksi & Knowledge</strong>
+                <span>Pedoman UM 2017 (.md)</span>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step-item">
+              <span class="flow-num">3</span>
+              <div class="flow-text">
+                <strong>Mulai Percakapan</strong>
+                <span>Kirim draf bab & simulasi</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -115,7 +144,154 @@
     </div>
   </section>
 
-  <!-- Fokus Evaluasi (4 Poin Kritis) -->
+  <!-- SEKSI 1: Panduan Interaktif Visual Claude.ai -->
+  <section id="panduan-claude" class="section section-muted">
+    <div class="container">
+      <div class="section-intro">
+        <span class="tag">Simulasi Antarmuka</span>
+        <h2>Panduan Visual 4 Langkah di Claude.ai</h2>
+        <p>
+          Ikuti simulasi visual di bawah ini untuk menyiapkan ruang kerja Claude.ai Projects Anda dalam empat langkah mudah tanpa instalasi teknis apa pun.
+        </p>
+      </div>
+
+      <!-- Interactive UI Mockup Simulator -->
+      <div class="simulator-wrapper">
+        <div class="simulator-nav">
+          <button class="sim-nav-btn active" data-step="1">01. Buat Project Baru</button>
+          <button class="sim-nav-btn" data-step="2">02. Custom Instructions</button>
+          <button class="sim-nav-btn" data-step="3">03. Unggah Pedoman Knowledge</button>
+          <button class="sim-nav-btn" data-step="4">04. Mulai Sesi Percakapan</button>
+        </div>
+
+        <div class="simulator-body">
+          <!-- Left: Instruction & Actions -->
+          <div class="sim-instruction-col">
+            <div class="sim-instruction-content">
+              <span id="simStepBadge" class="tag tag-navy">Langkah 01 dari 04</span>
+              <h3 id="simStepTitle">Buka claude.ai & Buat Project Baru</h3>
+              <div id="simStepDesc">
+                <!-- Injected dynamically by app.js -->
+              </div>
+              <div id="simActionArea" class="sim-action-area"></div>
+            </div>
+
+            <div class="sim-nav-controls">
+              <button id="btnSimPrev" class="btn btn-muted btn-sm" disabled>Sebelumnya</button>
+              <span id="simStepCounter">Langkah 1 dari 4</span>
+              <button id="btnSimNext" class="btn btn-navy btn-sm">Langkah Berikutnya</button>
+            </div>
+          </div>
+
+          <!-- Right: Browser & Claude Window Mockup -->
+          <div class="sim-screen-col">
+            <div class="claude-window-mockup">
+              <div class="window-topbar">
+                <div class="window-dots">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div id="simUrlBar" class="window-url">claude.ai/projects/new</div>
+              </div>
+              <div id="simWindowContent" class="window-content-area">
+                <!-- Diisi secara dinamis oleh app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSI 2: Pusat Unduhan & Knowledge Claude -->
+  <section id="berkas-unduhan" class="section">
+    <div class="container">
+      <div class="section-intro">
+        <span class="tag">Pusat Sumber Daya</span>
+        <h2>Berkas Pedoman dan Knowledge Claude.ai</h2>
+        <p>
+          Unduh seluruh berkas acuan resmi dalam format Markdown bersih untuk diunggah ke Project Knowledge Claude Anda sesuai standar UM 2017.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+        <!-- Resource 1: Claude Custom Instructions -->
+        <div class="resource-box">
+          <span class="tag tag-navy">Claude.ai Projects</span>
+          <h3>Instruksi Kustom Claude</h3>
+          <p>
+            Salin teks instruksi ini dan tempelkan pada menu Custom Instructions di Project Claude.ai Anda untuk mengaktifkan seluruh aturan telaah UM 2017.
+          </p>
+          <button id="btnCopyClaude" class="btn btn-navy btn-block">
+            Salin Instruksi Claude
+          </button>
+        </div>
+
+        <!-- Resource 2: Pedoman Markdown -->
+        <div class="resource-box">
+          <span class="tag">Dokumen Acuan Inti</span>
+          <h3>Buku Pedoman UM 2017 (.md)</h3>
+          <p>
+            Buku Pedoman Penulisan Karya Ilmiah UM Edisi Keenam lengkap (147 KB) dalam format Markdown bersih, siap diunggah ke Project Knowledge Claude.
+          </p>
+          <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-muted btn-block">
+            Unduh Berkas Pedoman
+          </a>
+        </div>
+
+        <!-- Resource 3: Rubrik Audit 8 Dimensi -->
+        <div class="resource-box">
+          <span class="tag">Rubrik Evaluasi</span>
+          <h3>Rubrik Audit 8 Dimensi UM</h3>
+          <p>
+            Panduan kriteria penilaian 8 aspek karya ilmiah (benang merah, metodologi, rujukan, sitasi, pembahasan, simpulan, bahasa, etika) untuk Claude Knowledge.
+          </p>
+          <a href="skills/audit-skripsi/reference/rubrik-audit-um2017.md" download class="btn btn-muted btn-block">
+            Unduh Rubrik Audit
+          </a>
+        </div>
+
+        <!-- Resource 4: Kamus Kata Baku -->
+        <div class="resource-box">
+          <span class="tag">Modul Kebahasaan</span>
+          <h3>Daftar Kata Baku & Konjungsi</h3>
+          <p>
+            Kompilasi 100+ pasangan kata baku dan non-baku yang sering keliru dalam penulisan skripsi, aturan konjungsi awal kalimat, dan format angka.
+          </p>
+          <a href="skills/audit-skripsi/reference/kamus-tata-bahasa-ilmiah.md" download class="btn btn-muted btn-block">
+            Unduh Daftar Kata Baku
+          </a>
+        </div>
+
+        <!-- Resource 5: Skala Penilaian -->
+        <div class="resource-box">
+          <span class="tag">Standar Ujian</span>
+          <h3>Skala Penilaian Sidang UM</h3>
+          <p>
+            Pedoman konversi nilai mutu resmi UM (A hingga E), bobot evaluasi per dimensi, serta format kartu penilaian ujian sidang skripsi.
+          </p>
+          <a href="skills/audit-skripsi/reference/skala-penilaian-sidang-um.md" download class="btn btn-muted btn-block">
+            Unduh Skala Penilaian
+          </a>
+        </div>
+
+        <!-- Resource 6: Artikel Ringkasan -->
+        <div class="resource-box">
+          <span class="tag">Publikasi Kelulusan</span>
+          <h3>Pedoman Artikel Ringkasan</h3>
+          <p>
+            Kaidah penyusunan artikel ilmiah dari skripsi untuk publikasi jurnal ilmiah sesuai Bab 3 Pedoman UM 2017 (format IMRAD tanpa nomor bab).
+          </p>
+          <a href="skills/audit-skripsi/reference/panduan-artikel-jurnal-um.md" download class="btn btn-muted btn-block">
+            Unduh Pedoman Artikel
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSI 3: Fokus Evaluasi (4 Poin Kritis) -->
   <section id="fokus-telaah" class="section section-muted">
     <div class="container">
       <div class="section-intro">
@@ -162,7 +338,7 @@
     </div>
   </section>
 
-  <!-- Interactive Before-After Viewer -->
+  <!-- SEKSI 4: Interactive Before-After Viewer -->
   <section id="perbandingan" class="section">
     <div class="container">
       <div class="section-intro">
@@ -187,14 +363,14 @@
     </div>
   </section>
 
-  <!-- Dua Pendekatan -->
+  <!-- SEKSI 5: Dua Pendekatan -->
   <section id="pendekatan" class="section section-muted">
     <div class="container">
       <div class="section-intro">
         <span class="tag">Model Pendampingan</span>
         <h2>Dua Pendekatan Evaluasi yang Disediakan</h2>
         <p>
-          Tersedia dua mode penelaahan yang dapat disesuaikan dengan tahapan persiapan Anda.
+          Tersedia dua mode penelaahan yang dapat disesuaikan dengan tahapan persiapan Anda di Claude.ai.
         </p>
       </div>
 
@@ -236,197 +412,7 @@
     </div>
   </section>
 
-  <!-- Pusat Unduhan & Prompt AI -->
-  <section id="berkas-unduhan" class="section">
-    <div class="container">
-      <div class="section-intro">
-        <span class="tag">Pusat Sumber Daya</span>
-        <h2>Berkas Pedoman dan Salin Prompt AI</h2>
-        <p>
-          Gunakan instruksi di bawah ini pada akun Claude atau ChatGPT Anda, atau unduh berkas acuan dalam format Markdown.
-        </p>
-      </div>
-
-      <div class="resources-grid">
-        <!-- Resource 1: Claude -->
-        <div class="resource-box">
-          <span class="tag tag-navy">Claude.ai Projects</span>
-          <h3>Instruksi Kustom Claude</h3>
-          <p>
-            Salin teks instruksi ini dan tempelkan pada menu Custom Instructions di Project Claude.ai Anda untuk mengaktifkan seluruh aturan evaluasi UM 2017.
-          </p>
-          <button id="btnCopyClaude" class="btn btn-navy btn-block">
-            Salin Instruksi Claude
-          </button>
-        </div>
-
-        <!-- Resource 2: ChatGPT -->
-        <div class="resource-box">
-          <span class="tag">ChatGPT / Custom GPT</span>
-          <h3>Prompt Sistem ChatGPT</h3>
-          <p>
-            Prompt terstruktur untuk ChatGPT atau OpenAI Custom GPT yang disesuaikan dengan ketentuan gaya selingkung penulisan karya ilmiah UM.
-          </p>
-          <button id="btnCopyChatGPT" class="btn btn-muted btn-block">
-            Salin Prompt ChatGPT
-          </button>
-        </div>
-
-        <!-- Resource 3: Pedoman Markdown -->
-        <div class="resource-box">
-          <span class="tag">Dokumen Acuan Inti</span>
-          <h3>Buku Pedoman UM 2017 (.md)</h3>
-          <p>
-            Buku Pedoman Penulisan Karya Ilmiah UM Edisi Keenam lengkap (147 KB) yang telah dikonversi ke Markdown bersih, siap diunggah ke Project Knowledge.
-          </p>
-          <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-muted btn-block">
-            Unduh Berkas Pedoman
-          </a>
-        </div>
-
-        <!-- Resource 4: Kamus Kata Baku -->
-        <div class="resource-box">
-          <span class="tag">Modul Kebahasaan</span>
-          <h3>Daftar Kata Baku & Konjungsi</h3>
-          <p>
-            Kompilasi 100+ pasangan kata baku dan non-baku yang sering keliru dalam penulisan skripsi, aturan konjungsi awal kalimat, dan format angka.
-          </p>
-          <a href="skills/audit-skripsi/reference/kamus-tata-bahasa-ilmiah.md" download class="btn btn-muted btn-block">
-            Unduh Daftar Kata Baku
-          </a>
-        </div>
-
-        <!-- Resource 5: Skala Penilaian -->
-        <div class="resource-box">
-          <span class="tag">Standar Ujian</span>
-          <h3>Skala Penilaian Sidang UM</h3>
-          <p>
-            Pedoman konversi nilai huruf dan angka mutu resmi UM (A hingga E), bobot evaluasi per dimensi, serta format kartu penilaian ujian sidang.
-          </p>
-          <a href="skills/audit-skripsi/reference/skala-penilaian-sidang-um.md" download class="btn btn-muted btn-block">
-            Unduh Skala Penilaian
-          </a>
-        </div>
-
-        <!-- Resource 6: Artikel Ringkasan -->
-        <div class="resource-box">
-          <span class="tag">Publikasi Kelulusan</span>
-          <h3>Pedoman Artikel Ringkasan</h3>
-          <p>
-            Kaidah penyusunan artikel ilmiah dari skripsi untuk publikasi jurnal ilmiah sesuai Bab 3 Pedoman UM 2017 (format IMRAD tanpa nomor bab).
-          </p>
-          <a href="skills/audit-skripsi/reference/panduan-artikel-jurnal-um.md" download class="btn btn-muted btn-block">
-            Unduh Pedoman Artikel
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Panduan Langkah Praktis -->
-  <section id="langkah-pakai" class="section section-muted">
-    <div class="container">
-      <div class="section-intro">
-        <span class="tag">Panduan Pemasangan</span>
-        <h2>Langkah demi Langkah Menjalankan Sistem</h2>
-        <p>
-          Pilihlah jalur yang paling sesuai dengan kebutuhan Anda: langsung melalui peramban web tanpa instalasi, atau dipasang pada AI Agent lokal Anda.
-        </p>
-      </div>
-
-      <!-- Tab Switcher Panduan -->
-      <div class="guide-tabs-nav">
-        <button class="guide-tab-btn active" data-guide="claude">Website Claude.ai (Tanpa Install / Browser)</button>
-        <button class="guide-tab-btn" data-guide="agent">AI Agent & Terminal (Antigravity / Claude Code)</button>
-      </div>
-
-      <!-- Panel 1: Website Claude.ai (4 Langkah Lengkap & Tombol Aksi Langsung) -->
-      <div id="guide-claude" class="guide-panel active">
-        <div class="steps-grid-4">
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 01</span>
-            <h3>Buka claude.ai & Buat Project</h3>
-            <p>
-              Kunjungi <strong>claude.ai</strong>, masuk dengan akun Anda, lalu klik menu <strong>Projects</strong> di bilah sisi kiri. Klik tombol <strong>Create Project</strong> dan beri nama ruang kerja Anda, misalnya <em>"Audit Skripsi UM"</em>.
-            </p>
-          </div>
-
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 02</span>
-            <h3>Tempel Instruksi Khusus</h3>
-            <p>
-              Buka menu pengaturan project yang baru dibuat, temukan kolom <strong>Set custom instructions</strong>. Klik tombol di bawah ini untuk menyalin seluruh instruksi standar UM 2017, lalu tempelkan dan simpan.
-            </p>
-            <div class="step-action-box">
-              <button id="btnStepCopyClaude" class="btn btn-navy btn-sm btn-block">
-                Salin Instruksi Claude
-              </button>
-            </div>
-          </div>
-
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 03</span>
-            <h3>Unggah Berkas Pedoman UM</h3>
-            <p>
-              Pada bagian <strong>Project Knowledge</strong> di bawahnya, unggah berkas Pedoman UM 2017 (.md). Klik tombol di bawah ini untuk mengunduh berkasnya ke komputer Anda terlebih dahulu.
-            </p>
-            <div class="step-action-box">
-              <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-muted btn-sm btn-block">
-                Unduh Pedoman (.md)
-              </a>
-            </div>
-          </div>
-
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 04</span>
-            <h3>Mulai Sesi Percakapan</h3>
-            <p>
-              Klik <strong>Start chat</strong> di dalam project tersebut. Ketik <code>/audit</code> lalu sertakan draf bab untuk ditelaah, atau ketik <code>/sidang</code> untuk memulai simulasi tanya-jawab ujian sidang.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 2: AI Agent & Terminal (3 Langkah Otomatis) -->
-      <div id="guide-agent" class="guide-panel">
-        <div class="steps-layout">
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 01</span>
-            <h3>Unduh Repositori Proyek</h3>
-            <p>
-              Klon repositori ini ke komputer Anda melalui terminal atau unduh berkas ZIP repositori:
-            </p>
-            <div class="code-snippet">git clone https://github.com/nandaaddi/audit-skripsi-um.git
-cd audit-skripsi-um</div>
-          </div>
-
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 02</span>
-            <h3>Jalankan Skrip Instalasi 1-Klik</h3>
-            <p>
-              Jalankan skrip pemasangan otomatis sesuai sistem operasi yang Anda gunakan untuk mendaftarkan skill ke runtime agent:
-            </p>
-            <div class="code-snippet"># Windows (PowerShell):
-powershell -ExecutionPolicy Bypass -File install.ps1
-
-# Linux / macOS (Terminal):
-chmod +x install.sh && ./install.sh</div>
-          </div>
-
-          <div class="step-card-clean">
-            <span class="step-badge">Langkah 03</span>
-            <h3>Gunakan di IDE atau Terminal</h3>
-            <p>
-              Buka <strong>Antigravity IDE</strong> atau jalankan <code>claude</code> di terminal. Skill <code>audit-skripsi</code> akan otomatis terdeteksi. Ketik <code>/audit</code> atau <code>/sidang</code> langsung di ruang chat.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQ & Penafian -->
+  <!-- SEKSI 6: FAQ & Penafian -->
   <section id="tanya-jawab" class="section">
     <div class="container">
       <div class="section-intro">
@@ -442,7 +428,7 @@ chmod +x install.sh && ./install.sh</div>
           </button>
           <div class="faq-content">
             <p>
-              Seluruh proses penelaahan dilakukan langsung di dalam akun AI pribadi Anda (Claude.ai atau ChatGPT). Tidak ada data naskah, abstrak, atau identitas mahasiswa yang disimpan di peladen publik halaman ini.
+              Seluruh proses penelaahan dilakukan langsung di dalam ruang kerja Claude.ai pribadi Anda. Tidak ada data naskah, abstrak, atau identitas mahasiswa yang dikirim atau disimpan di peladen publik halaman ini.
             </p>
           </div>
         </div>
@@ -466,7 +452,7 @@ chmod +x install.sh && ./install.sh</div>
           </button>
           <div class="faq-content">
             <p>
-              Sangat disarankan menelaah naskah bab demi bab (misalnya Bab I terlebih dahulu, kemudian Bab II, dan seterusnya). Hal ini memungkinkan AI memberikan telaah yang lebih rinci dan mendalam pada setiap bagian.
+              Sangat disarankan menelaah naskah bab demi bab (misalnya Bab I terlebih dahulu, kemudian Bab II, dan seterusnya). Hal ini memungkinkan Claude memberikan telaah yang lebih rinci dan mendalam pada setiap bagian.
             </p>
           </div>
         </div>
@@ -506,11 +492,12 @@ chmod +x install.sh && ./install.sh</div>
         </div>
 
         <ul class="footer-nav">
-          <li><a href="#fokus-telaah">Fokus Evaluasi</a></li>
-          <li><a href="#perbandingan">Contoh Naskah</a></li>
+          <li><a href="#panduan-claude">Panduan Claude</a></li>
           <li><a href="#berkas-unduhan">Unduhan</a></li>
+          <li><a href="#fokus-telaah">Fokus Telaah</a></li>
+          <li><a href="#perbandingan">Contoh Naskah</a></li>
+          <li><a href="#tanya-jawab">Tanya Jawab</a></li>
           <li><a href="LICENSE">Lisensi MIT</a></li>
-          <li><a href="https://github.com/nandaaddi/audit-skripsi-um" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>
 

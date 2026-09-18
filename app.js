@@ -1,8 +1,9 @@
 /**
- * AUDIT SKRIPSI UM — Clean Academic Logic
+ * AUDIT SKRIPSI UM — Claude.ai Exclusive Academic Platform
  * Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (2017)
  */
 
+// Data Kasus Sebelum vs Sesudah
 const CASE_STUDIES = {
   bab1: {
     badgeBefore: "Catatan: Kalimat Klise Tanpa Data",
@@ -60,6 +61,133 @@ Mahasiswa: "Terima kasih atas pertanyaannya. Pemilihan purposive sampling didasa
   }
 };
 
+// Data 4 Langkah Visual Simulator Claude.ai
+const CLAUDE_GUIDE_STEPS = {
+  1: {
+    badge: "Langkah 01 dari 04",
+    title: "Buka claude.ai & Buat Project Baru",
+    desc: `
+      <ol class="sim-steps-list">
+        <li><strong>Buka Claude:</strong> Kunjungi <a href="https://claude.ai" target="_blank" rel="noopener" class="text-link">claude.ai</a> dan masuk menggunakan akun Anda.</li>
+        <li><strong>Pilih Projects:</strong> Klik menu <strong>Projects</strong> pada bilah navigasi sisi kiri.</li>
+        <li><strong>Buat Ruang Kerja:</strong> Klik tombol <strong>Create Project</strong> dan beri nama ruang kerja Anda, misalnya <em>"Audit Skripsi UM"</em>.</li>
+      </ol>
+    `,
+    actionType: "link",
+    actionText: "Buka claude.ai di Tab Baru",
+    actionHref: "https://claude.ai",
+    urlBar: "claude.ai/projects/new",
+    mockup: `
+      <div class="mockup-sidebar-layout">
+        <div class="mockup-sidebar">
+          <div class="mockup-menu-item">Chats</div>
+          <div class="mockup-menu-item active">Projects</div>
+          <div class="mockup-menu-item">Artifacts</div>
+          <div class="mockup-menu-item" style="margin-top: 3rem;">Settings</div>
+        </div>
+        <div class="mockup-main-area">
+          <div class="mockup-dialog-box">
+            <h5>Create new project</h5>
+            <p>Ruang kerja privat untuk menelaah naskah skripsi Anda</p>
+            <div class="mockup-input-field">Audit Skripsi UM</div>
+            <button class="btn btn-navy btn-sm" style="width: 100%;">Create Project</button>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  2: {
+    badge: "Langkah 02 dari 04",
+    title: "Masukkan Instruksi Kustom (Custom Instructions)",
+    desc: `
+      <ol class="sim-steps-list">
+        <li><strong>Salin Teks:</strong> Klik tombol <em>Salin Teks Instruksi Claude</em> di bawah ini.</li>
+        <li><strong>Buka Pengaturan:</strong> Di ruang kerja project Anda, buka menu <strong>Set custom instructions</strong>.</li>
+        <li><strong>Tempel & Simpan:</strong> Tempel teks instruksi ke kolom tersebut lalu klik <strong>Save</strong>. Seluruh standar telaah UM 2017 langsung aktif.</li>
+      </ol>
+    `,
+    actionType: "copy",
+    actionText: "Salin Teks Instruksi Claude",
+    urlBar: "claude.ai/project/audit-skripsi-um/settings",
+    mockup: `
+      <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <h5 style="margin: 0;">Custom Instructions</h5>
+          <span class="tag tag-navy" style="font-size: 0.7rem;">Standar UM 2017</span>
+        </div>
+        <div class="mockup-preview-textarea">
+# IDENTITAS & PERSONA — AUDIT SKRIPSI UM 2017
+Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmiah UM 2017 (Edisi Keenam).
+- /audit  : Telaah komprehensif naskah bab
+- /sidang : Simulasi tanya-jawab sidang 4 ronde
+- Rujukan : Minimal 80% rujukan jurnal 10 tahun terakhir
+- Simpulan: Bentuk alinea naratif padat tanpa angka statistik...
+        </div>
+        <button class="btn btn-navy btn-sm" style="width: 100%;">Save instructions</button>
+      </div>
+    `
+  },
+  3: {
+    badge: "Langkah 03 dari 04",
+    title: "Unggah Berkas Pedoman UM ke Knowledge",
+    desc: `
+      <ol class="sim-steps-list">
+        <li><strong>Unduh Berkas Pedoman:</strong> Unduh berkas <em>Pedoman-Penulisan-Karya-Ilmiah-2017.md</em> (147 KB) menggunakan tombol di bawah.</li>
+        <li><strong>Buka Project Knowledge:</strong> Pada panel <strong>Project Knowledge</strong> di project Claude Anda, klik <strong>Add content / Files</strong>.</li>
+        <li><strong>Unggah Berkas:</strong> Pilih berkas Markdown tersebut agar Claude memahami seluruh aturan gaya selingkung UM 2017.</li>
+      </ol>
+    `,
+    actionType: "download",
+    actionText: "Unduh Berkas Pedoman (.md)",
+    actionHref: "Pedoman-Penulisan-Karya-Ilmiah-2017.md",
+    urlBar: "claude.ai/project/audit-skripsi-um/knowledge",
+    mockup: `
+      <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <h5 style="margin: 0;">Project Knowledge</h5>
+          <span class="tag" style="font-size: 0.7rem;">1 File Terunggah</span>
+        </div>
+        <div class="mockup-file-card">
+          <div class="file-info">
+            <h6>Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
+            <span>147 KB • Markdown Indexed</span>
+          </div>
+          <span style="font-size: 0.75rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+        </div>
+        <div style="margin-top: 1.25rem; text-align: center;">
+          <button class="btn btn-muted btn-sm" style="width: 100%; font-size: 0.775rem;">+ Add more content</button>
+        </div>
+      </div>
+    `
+  },
+  4: {
+    badge: "Langkah 04 dari 04",
+    title: "Mulai Chat & Kirimkan Naskah Bab",
+    desc: `
+      <ol class="sim-steps-list">
+        <li><strong>Buka Chat:</strong> Klik tombol <strong>Start chat</strong> di dalam project Claude Anda.</li>
+        <li><strong>Ketik Perintah Telaah:</strong> Klik salah satu perintah cepat di bawah untuk menyalin perintah, lalu tempelkan draf bab naskah Anda.</li>
+        <li><strong>Terima Masukan Seketika:</strong> Claude akan menelaah naskah Anda sesuai Pedoman UM atau menyimulasikan ujian sidang.</li>
+      </ol>
+    `,
+    actionType: "chips",
+    urlBar: "claude.ai/project/audit-skripsi-um/chat",
+    mockup: `
+      <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <div class="mockup-chat-bubble user">
+          /audit Bab I Latar Belakang Masalah...
+        </div>
+        <div class="mockup-chat-bubble claude">
+          <strong>Laporan Penelaahan Skripsi — Standar UM 2017:</strong><br>
+          • Nilai Mutu: A (Sangat Memuaskan)<br>
+          • Benang Merah: Rumusan masalah selaras dengan kesenjangan empiris.<br>
+          • Catatan: Ubah konjungsi "sehingga" di awal kalimat alinea ke-3.
+        </div>
+      </div>
+    `
+  }
+};
+
 const CLAUDE_CUSTOM_INSTRUCTIONS = `# IDENTITAS & PERSONA — AUDIT SKRIPSI UM 2017
 Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (UM 2017 Edisi Keenam).
 
@@ -87,14 +215,96 @@ PERINTAH:
 - /benang-merah: Evaluasi keselarasan alur logika naskah.
 - /cek-rujukan : Pemeriksaan kemutakhiran dan keprimeran rujukan.`;
 
-const CHATGPT_SYSTEM_PROMPT = `Kamu bertindak sebagai asisten penelaahan skripsi berbasis Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (UM 2017 Edisi Keenam).
-Fokus penelaahan:
-1. Keselarasan benang merah (Masalah, Teori, Metode, Temuan, Simpulan).
-2. Rujukan: minimal 80% artikel jurnal 10 tahun terakhir.
-3. Pembahasan: harus mengaitkan temuan dengan teori dan riset terdahulu.
-4. Simpulan: bentuk alinea naratif (bukan poin angka), tanpa angka statistik teknis.
-5. Bahasa baku: ragam impersonal, hindari konjungsi intrakalimat di awal kalimat, format desimal koma (bukan titik).
-Gunakan gaya komunikasi yang profesional, lugas, dan edukatif.`;
+let currentStep = 1;
+
+function renderGuideStep(stepNum) {
+  const step = CLAUDE_GUIDE_STEPS[stepNum];
+  if (!step) return;
+
+  currentStep = stepNum;
+
+  // Update navigasi tombol
+  const navBtns = document.querySelectorAll(".sim-nav-btn");
+  navBtns.forEach((btn, idx) => {
+    if (idx + 1 === stepNum) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
+  // Update konten instruksi
+  const badgeEl = document.getElementById("simStepBadge");
+  const titleEl = document.getElementById("simStepTitle");
+  const descEl = document.getElementById("simStepDesc");
+  const actionAreaEl = document.getElementById("simActionArea");
+  const stepCounterEl = document.getElementById("simStepCounter");
+  const urlBarEl = document.getElementById("simUrlBar");
+  const windowContentEl = document.getElementById("simWindowContent");
+
+  if (badgeEl) badgeEl.textContent = step.badge;
+  if (titleEl) titleEl.textContent = step.title;
+  if (descEl) descEl.innerHTML = step.desc;
+  if (stepCounterEl) stepCounterEl.textContent = `Langkah ${stepNum} dari 4`;
+  if (urlBarEl) urlBarEl.textContent = step.urlBar;
+  if (windowContentEl) windowContentEl.innerHTML = step.mockup;
+
+  // Update tombol aksi langsung
+  if (actionAreaEl) {
+    if (step.actionType === "copy") {
+      actionAreaEl.innerHTML = `
+        <button id="btnStepCopyInline" class="btn btn-navy btn-sm">
+          ${step.actionText}
+        </button>
+      `;
+      const btnInline = document.getElementById("btnStepCopyInline");
+      if (btnInline) {
+        btnInline.addEventListener("click", () => {
+          copyText(CLAUDE_CUSTOM_INSTRUCTIONS, "Instruksi Claude berhasil disalin ke clipboard.");
+        });
+      }
+    } else if (step.actionType === "download") {
+      actionAreaEl.innerHTML = `
+        <a href="${step.actionHref}" download class="btn btn-muted btn-sm">
+          ${step.actionText}
+        </a>
+      `;
+    } else if (step.actionType === "link") {
+      actionAreaEl.innerHTML = `
+        <a href="${step.actionHref}" target="_blank" rel="noopener" class="btn btn-muted btn-sm">
+          ${step.actionText}
+        </a>
+      `;
+    } else if (step.actionType === "chips") {
+      actionAreaEl.innerHTML = `
+        <div class="quick-chips-wrap">
+          <span class="chips-label">Klik untuk menyalin perintah siap pakai:</span>
+          <div class="quick-chips-grid">
+            <button class="quick-chip" data-cmd="/audit Bab 1 [tempel draf naskah latar belakang]">/audit Bab 1</button>
+            <button class="quick-chip" data-cmd="/sidang Simulasi Ujian Sidang Skripsi">/sidang</button>
+            <button class="quick-chip" data-cmd="/bimbingan [tempel alinea untuk diperbaiki]">/bimbingan</button>
+            <button class="quick-chip" data-cmd="/cek-rujukan [tempel daftar rujukan]">/cek-rujukan</button>
+          </div>
+        </div>
+      `;
+      const chips = actionAreaEl.querySelectorAll(".quick-chip");
+      chips.forEach(chip => {
+        chip.addEventListener("click", () => {
+          const cmd = chip.getAttribute("data-cmd");
+          copyText(cmd, `Perintah disalin! Tempelkan di chat Claude.`);
+        });
+      });
+    } else {
+      actionAreaEl.innerHTML = "";
+    }
+  }
+
+  // Update tombol prev/next status
+  const prevBtn = document.getElementById("btnSimPrev");
+  const nextBtn = document.getElementById("btnSimNext");
+  if (prevBtn) prevBtn.disabled = (stepNum === 1);
+  if (nextBtn) nextBtn.disabled = (stepNum === 4);
+}
 
 function renderCaseStudy(key) {
   const data = CASE_STUDIES[key];
@@ -188,8 +398,13 @@ function fallbackCopy(text, successMessage) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Inisialisasi Case Study default
   renderCaseStudy("bab1");
 
+  // Inisialisasi Visual Simulator Langkah 1
+  renderGuideStep(1);
+
+  // Tab perbandingan naskah
   const tabBtns = document.querySelectorAll(".viewer-tab-btn");
   tabBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -200,26 +415,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Guide Tab Switcher (Claude.ai vs AI Agent)
-  const guideTabBtns = document.querySelectorAll(".guide-tab-btn");
-  guideTabBtns.forEach(btn => {
+  // Navigasi Simulator Langkah (Pills)
+  const simNavBtns = document.querySelectorAll(".sim-nav-btn");
+  simNavBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      guideTabBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const targetGuide = btn.getAttribute("data-guide");
-      
-      const panelClaude = document.getElementById("guide-claude");
-      const panelAgent = document.getElementById("guide-agent");
-      
-      if (targetGuide === "claude") {
-        if (panelClaude) panelClaude.classList.add("active");
-        if (panelAgent) panelAgent.classList.remove("active");
-      } else {
-        if (panelClaude) panelClaude.classList.remove("active");
-        if (panelAgent) panelAgent.classList.add("active");
-      }
+      const step = parseInt(btn.getAttribute("data-step"), 10);
+      renderGuideStep(step);
     });
   });
+
+  // Tombol Prev/Next Simulator
+  const btnSimPrev = document.getElementById("btnSimPrev");
+  if (btnSimPrev) {
+    btnSimPrev.addEventListener("click", () => {
+      if (currentStep > 1) renderGuideStep(currentStep - 1);
+    });
+  }
+
+  const btnSimNext = document.getElementById("btnSimNext");
+  if (btnSimNext) {
+    btnSimNext.addEventListener("click", () => {
+      if (currentStep < 4) renderGuideStep(currentStep + 1);
+    });
+  }
 
   // Tombol Salin Prompt Claude (Resource Hub & Hero)
   const btnCopyClaude = document.getElementById("btnCopyClaude");
@@ -227,24 +445,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btnCopyClaude.addEventListener("click", (e) => {
       e.preventDefault();
       copyText(CLAUDE_CUSTOM_INSTRUCTIONS, "Instruksi Claude berhasil disalin ke clipboard.");
-    });
-  }
-
-  // Tombol Salin Prompt Inline di Langkah 2
-  const btnStepCopyClaude = document.getElementById("btnStepCopyClaude");
-  if (btnStepCopyClaude) {
-    btnStepCopyClaude.addEventListener("click", (e) => {
-      e.preventDefault();
-      copyText(CLAUDE_CUSTOM_INSTRUCTIONS, "Instruksi Claude berhasil disalin ke clipboard.");
-    });
-  }
-
-  // Tombol Salin Prompt ChatGPT
-  const btnCopyChatGPT = document.getElementById("btnCopyChatGPT");
-  if (btnCopyChatGPT) {
-    btnCopyChatGPT.addEventListener("click", (e) => {
-      e.preventDefault();
-      copyText(CHATGPT_SYSTEM_PROMPT, "Instruksi ChatGPT berhasil disalin ke clipboard.");
     });
   }
 
@@ -256,6 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Accordion FAQ
   const faqTriggers = document.querySelectorAll(".faq-trigger");
   faqTriggers.forEach(trigger => {
     trigger.addEventListener("click", () => {
