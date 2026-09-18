@@ -1,0 +1,30 @@
+# Git Ignore — Audit Skripsi UM
+
+# Arsip Berkas Privat & Data Mahasiswa
+_archive_privat/
+*.docx
+*.pdf
+
+# Python Cache & Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Editor & System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Temporary test outputs
+extracted_test.md
+test_output.md
+output_bersih.md
