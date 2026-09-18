@@ -129,33 +129,49 @@ Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmia
   },
   3: {
     badge: "Langkah 03 dari 04",
-    title: "Unggah Berkas Pedoman UM ke Knowledge",
+    title: "Unggah Berkas Pedoman & Modul ke Knowledge",
     desc: `
       <ol class="sim-steps-list">
-        <li><strong>Unduh Berkas Pedoman:</strong> Unduh berkas <em>Pedoman-Penulisan-Karya-Ilmiah-2017.md</em> (147 KB) menggunakan tombol di bawah.</li>
+        <li><strong>Pilih Berkas Knowledge:</strong> Disediakan berkas <em>All-in-One (.md)</em> yang sudah menggabungkan Buku Pedoman + Rubrik 8 Dimensi + Kamus Kata Baku + Skala Nilai Sidang (atau unduh <em>Paket 5 File .zip</em>).</li>
         <li><strong>Buka Project Knowledge:</strong> Pada panel <strong>Project Knowledge</strong> di project Claude Anda, klik <strong>Add content / Files</strong>.</li>
-        <li><strong>Unggah Berkas:</strong> Pilih berkas Markdown tersebut agar Claude memahami seluruh aturan gaya selingkung UM 2017.</li>
+        <li><strong>Unggah Berkas:</strong> Masukkan file tersebut. Claude akan mengindeks seluruh kriteria rubrik nilai, kamus tata bahasa baku, dan skala ujian sidang sebagai otak analisis naskah Anda.</li>
       </ol>
     `,
-    actionType: "download",
-    actionText: "Unduh Berkas Pedoman (.md)",
-    actionHref: "Pedoman-Penulisan-Karya-Ilmiah-2017.md",
+    actionType: "download_multi",
     urlBar: "claude.ai/project/audit-skripsi-um/knowledge",
     mockup: `
       <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-          <h5 style="margin: 0;">Project Knowledge</h5>
-          <span class="tag" style="font-size: 0.7rem;">1 File Terunggah</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+          <h5 style="margin: 0; font-size: 0.9rem;">Project Knowledge</h5>
+          <span class="tag tag-navy" style="font-size: 0.7rem;">5 Modul Terindeks</span>
         </div>
-        <div class="mockup-file-card">
+        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
           <div class="file-info">
-            <h6>Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
-            <span>147 KB • Markdown Indexed</span>
+            <h6 style="font-size: 0.8rem;">Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
+            <span style="font-size: 0.7rem;">147 KB • Buku Pedoman Utama Edisi Keenam</span>
           </div>
-          <span style="font-size: 0.75rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
-        <div style="margin-top: 1.25rem; text-align: center;">
-          <button class="btn btn-muted btn-sm" style="width: 100%; font-size: 0.775rem;">+ Add more content</button>
+        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
+          <div class="file-info">
+            <h6 style="font-size: 0.8rem;">rubrik-audit-um2017.md</h6>
+            <span style="font-size: 0.7rem;">10 KB • Rubrik Penilaian 8 Dimensi UM</span>
+          </div>
+          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+        </div>
+        <div class="mockup-file-card" style="margin-bottom: 0.35rem; padding: 0.55rem 0.85rem;">
+          <div class="file-info">
+            <h6 style="font-size: 0.8rem;">kamus-tata-bahasa-ilmiah.md</h6>
+            <span style="font-size: 0.7rem;">9 KB • 100+ Pasangan Kata Baku & Sintaksis</span>
+          </div>
+          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+        </div>
+        <div class="mockup-file-card" style="padding: 0.55rem 0.85rem;">
+          <div class="file-info">
+            <h6 style="font-size: 0.8rem;">skala-penilaian-sidang-um.md</h6>
+            <span style="font-size: 0.7rem;">8 KB • Standar Nilai Mutu A-E & Lembar Sidang</span>
+          </div>
+          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
         </div>
       </div>
     `
@@ -263,6 +279,17 @@ function renderGuideStep(stepNum) {
           copyText(CLAUDE_CUSTOM_INSTRUCTIONS, "Instruksi Claude berhasil disalin ke clipboard.");
         });
       }
+    } else if (step.actionType === "download_multi") {
+      actionAreaEl.innerHTML = `
+        <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+          <a href="Pedoman-dan-Pengetahuan-Audit-UM-2017-Lengkap.md" download class="btn btn-navy btn-sm">
+            Unduh Berkas Lengkap All-in-One (.md)
+          </a>
+          <a href="paket-knowledge-audit-skripsi-um.zip" download class="btn btn-muted btn-sm">
+            Unduh Paket 5 File (.zip)
+          </a>
+        </div>
+      `;
     } else if (step.actionType === "download") {
       actionAreaEl.innerHTML = `
         <a href="${step.actionHref}" download class="btn btn-muted btn-sm">

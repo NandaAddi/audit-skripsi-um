@@ -674,6 +674,36 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Resource Hub (NO BORDERS / NO OUTLINE) */
+/* Bundle Knowledge Banner */
+.bundle-knowledge-banner {
+  background-color: var(--navy-tint);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-card);
+  border: none;
+}
+
+.bundle-banner-content h3 {
+  font-size: 1.35rem;
+  color: var(--navy-primary);
+  margin: 0.6rem 0 0.75rem;
+}
+
+.bundle-banner-content p {
+  font-size: 0.925rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 820px;
+}
+
+.bundle-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
 .resources-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
