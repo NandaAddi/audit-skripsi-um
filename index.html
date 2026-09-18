@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Skripsi UM — AI Companion & Simulasi Sidang Skripsi Killer</title>
+  <meta name="description" content="Sistem audit akademik, bimbingan rekonstruksi kalimat ilmiah, dan simulasi sidang skripsi dosen killer berstandar Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang 2017.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>Audit Skripsi UM</h1>
+          <span>Standar UM 2017</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#masalah">Celah Kritis</a></li>
+          <li><a href="#bedah-kasus">Bedah Contoh</a></li>
+          <li><a href="#persona">Persona Penguji</a></li>
+          <li><a href="#resource-hub">Resource Hub</a></li>
+          <li><a href="#panduan">Cara Pakai</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#resource-hub" class="btn btn-primary btn-sm">⚡ Salin Prompt AI</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="badge badge-gold">🏛️ Pedoman Penulisan Karya Ilmiah UM 2017 • Edisi Keenam</span>
+        </div>
+        <h1 class="hero-title">
+          Uji Mental & Sempurnakan Skripsi Sebelum <span>Sidang Sesungguhnya.</span>
+        </h1>
+        <p class="hero-desc">
+          Sistem audit akademik cerdas, bimbingan rekonstruksi kalimat ilmiah, dan simulasi sidang penguji <em>killer</em> berstandar resmi Universitas Negeri Malang. Langsung pakai di browser Anda tanpa perlu keahlian koding.
+        </p>
+
+        <div class="hero-actions">
+          <button id="btnHeroCopy" class="btn btn-primary">
+            <span>📋 Salin Prompt Claude.ai</span>
+          </button>
+          <a href="#bedah-kasus" class="btn btn-outline">
+            <span>👁️ Lihat Bedah Kasus</span>
+          </a>
+          <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-outline">
+            <span>📖 Unduh Buku Pedoman (.md)</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>80%+</h4>
+            <p>Standar Rujukan Jurnal</p>
+          </div>
+          <div class="stat-item">
+            <h4>≤ 10 Th</h4>
+            <p>Kemutakhiran Pustaka</p>
+          </div>
+          <div class="stat-item">
+            <h4>A / B+ / B</h4>
+            <p>Skala Kelulusan UM</p>
+          </div>
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Akses Terbuka & Gratis</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Card Preview -->
+      <div class="hero-card-wrapper">
+        <div class="hero-card">
+          <div class="card-header-badge">
+            <span class="badge badge-navy">📊 Contoh Hasil Diagnostik AI</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">STANDAR MUTU UM</span>
+          </div>
+
+          <div class="score-display">
+            <div class="score-circle">88</div>
+            <div class="score-meta">
+              <h4>Nilai Mutu: A (Sangat Memuaskan)</h4>
+              <p>Status: Lulus Sidang dengan Revisi Minor</p>
+            </div>
+          </div>
+
+          <div class="audit-mini-list">
+            <div class="mini-item fatal">
+              <span>🔴</span>
+              <div>
+                <strong>Celah Bab I:</strong> Latar belakang tidak memuat data empiris PISA 2022; menggunakan frasa klise <em>"di negara kita"</em>.
+              </div>
+            </div>
+            <div class="mini-item solution">
+              <span>✏️</span>
+              <div>
+                <strong>Formula Solutif:</strong> Rekonstruksi kalimat berbasis data literasi sains OECD (2023) dan rujukan primer mutakhir.
+              </div>
+            </div>
+            <div class="mini-item fatal">
+              <span>🔴</span>
+              <div>
+                <strong>Celah Bab V:</strong> Simpulan masih berbentuk butir numerik (1, 2, 3) dan memuat angka statistik. Wajib diubah ke alinea naratif!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement Section -->
+  <section id="masalah" class="section" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-red">⚠️ Keresahan Klasik Mahasiswa</span>
+        </div>
+        <h2 class="section-title">4 Alasan Fatal Mengapa Naskah Skripsi Sering Direvisi Total</h2>
+        <p class="section-desc">
+          Berdasarkan evaluasi ratusan ujian sidang skripsi di lingkungan civitas akademika, berikut adalah cacat substansial yang paling sering diserang oleh dewan penguji.
+        </p>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon" style="color: #b91c1c;">🧵</div>
+          <h3>Benang Merah Logika Putus</h3>
+          <p>
+            Rumusan masalah tidak dijawab oleh metodologi di Bab III, kajian teori di Bab II tidak mendukung variabel penelitian, dan simpulan mengulang teori buku.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" style="color: #b45309;">📚</div>
+          <h3>Rujukan Usang & Sekunder</h3>
+          <p>
+            Daftar rujukan didominasi buku teks pengantar terbitan >10 tahun lalu, serta gagal memenuhi standar wajib UM: minimal 80% artikel jurnal penelitian mutakhir.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" style="color: #1d4ed8;">📊</div>
+          <h3>Pembahasan Hanya "Salin Tabel"</h3>
+          <p>
+            Bab IV hanya mendongengkan ulang angka dari tabel persentase tanpa interpretasi saintifik: tidak menjawab <em>mengapa</em> hasilnya demikian dan tanpa komparasi teori.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" style="color: #059669;">✍️</div>
+          <h3>Kecerobohan Ragam Bahasa</h3>
+          <p>
+            Banyak menggunakan kata ganti subjektif ("peneliti melakukan", "saya"), konjungsi intrakalimat di awal kalimat (*Sehingga*, *Sedangkan*), dan kata non-baku.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Interactive Showcase -->
+  <section id="bedah-kasus" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-gold">🔍 Komparasi Nyata</span>
+        </div>
+        <h2 class="section-title">Interactive Before-After: Bedah Naskah Mahasiswa</h2>
+        <p class="section-desc">
+          Lihat bagaimana AI membedah celah naskah yang sering ditulis mahasiswa dan merekonstruksinya menjadi kalimat ilmiah yang berbobot dan siap sidang.
+        </p>
+      </div>
+
+      <div class="viewer-card">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="bab1">Bab I: Latar Belakang</button>
+          <button class="tab-btn" data-target="bab4">Bab IV: Pembahasan Hasil</button>
+          <button class="tab-btn" data-target="bab5">Bab V: Simpulan Naratif</button>
+          <button class="tab-btn" data-target="sidang">Simulasi Sidang: Pertanyaan Jebakan</button>
+        </div>
+
+        <!-- Dynamic Container for Case Study -->
+        <div id="caseStudyView" class="comparison-view">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Persona Comparison Section -->
+  <section id="persona" class="section" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-navy">👥 Dual Persona AI</span>
+        </div>
+        <h2 class="section-title">Dua Sudut Pandang: Uji Nyali vs Bimbingan Solutif</h2>
+        <p class="section-desc">
+          Pilih mode latihan sesuai tahapan persiapan Anda. Apakah ingin menguji ketahanan mental menghadapi dosen penguji, atau ingin bimbingan santai untuk memperbaiki paragraf naskah?
+        </p>
+      </div>
+
+      <div class="persona-grid">
+        <div class="persona-card killer">
+          <div class="persona-badge">
+            <span class="badge badge-red">🔴 Mode Sidang Killer (`/sidang`)</span>
+          </div>
+          <h3 class="persona-name">Prof. Dr. Evaluator, M.Pd.</h3>
+          <p class="persona-role">Ketua Dewan Penguji Sidang Senior UM</p>
+          <p class="persona-desc">
+            Dikenal dingin, tajam, dan tanpa kompromi. Menguji benang merah naskah Anda dalam 4 ronde bertahap. Jika jawaban Anda mengambang, beliau akan mencecar lubang metodologi Anda hingga ke akarnya.
+          </p>
+          <div class="persona-phrases">
+            <h4>Frasa Khas Ujian Sidang:</h4>
+            <ul>
+              <li>Ini klaim ilmiah dari rujukan primer atau opini pribadi Anda?</li>
+              <li>Metodologi ini tidak bisa menjawab rumusan masalah nomor 2. Sadarkah Anda?</li>
+              <li>Bab IV Anda hanya mendongengkan ulang tabel data tanpa telaah teori.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="persona-card solutif">
+          <div class="persona-badge">
+            <span class="badge badge-green">🟢 Mode Bimbingan (`/bimbingan`)</span>
+          </div>
+          <h3 class="persona-name">Dr. Pembimbing Solutif, M.Pd.</h3>
+          <p class="persona-role">Dosen Pembimbing Akademik Konstruktif</p>
+          <p class="persona-desc">
+            Sabar, sistematis, dan solutif. Menemukan akar kelemahan tulisan Anda dan membimbing cara merumuskan kalimat dengan <strong>Formula 4-Bagian Rekonstruksi Kalimat</strong> yang siap pakai.
+          </p>
+          <div class="persona-phrases">
+            <h4>Frasa Khas Pembimbingan:</h4>
+            <ul>
+              <li>Gagasan Anda bagus, mari kita pertegas kesenjangan masalahnya dengan data empiris.</li>
+              <li>Ubah kalimat ini ke ragam pasif bertolak dari gagasan agar terbebas dari kata persona.</li>
+              <li>Berikut contoh formula rekonstruksi kalimat yang bisa langsung Anda gunakan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resource Hub Section -->
+  <section id="resource-hub" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-gold">⚡ Pusat Akses Mahasiswa</span>
+        </div>
+        <h2 class="section-title">Resource Hub: Salin Prompt & Unduh Berkas</h2>
+        <p class="section-desc">
+          Semua materi, instruksi AI, kamus bahasa, dan pedoman resmi tersedia gratis untuk seluruh mahasiswa. Tanpa perlu mendaftar atau mengerti GitHub.
+        </p>
+      </div>
+
+      <div class="resource-grid">
+        <!-- Resource 1: Claude.ai Instructions -->
+        <div class="resource-card featured">
+          <div class="resource-icon">🤖</div>
+          <span class="badge badge-navy" style="width: fit-content; margin-bottom: 0.75rem;">Paling Direkomendasikan</span>
+          <h3>Claude.ai Custom Instructions</h3>
+          <p>
+            Instruksi prompt lengkap untuk fitur Claude.ai Projects. Mengaktifkan Dosen Killer, bimbingan solutif, dan skala nilai resmi UM 2017 secara otomatis.
+          </p>
+          <div class="resource-footer">
+            <button id="btnCopyClaude" class="btn btn-primary" style="width: 100%;">
+              <span>📋 1-Klik Salin Prompt Claude</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resource 2: ChatGPT System Prompt -->
+        <div class="resource-card">
+          <div class="resource-icon">💬</div>
+          <span class="badge badge-gold" style="width: fit-content; margin-bottom: 0.75rem;">ChatGPT / Web Chat</span>
+          <h3>ChatGPT System Prompt</h3>
+          <p>
+            Prompt teroptimasi untuk ChatGPT (GPT-4 / Custom GPT). Memandu AI untuk mengaudit skripsi dan menguji mahasiswa dengan gaya dosen penguji UM.
+          </p>
+          <div class="resource-footer">
+            <button id="btnCopyChatGPT" class="btn btn-gold" style="width: 100%;">
+              <span>📋 1-Klik Salin Prompt ChatGPT</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resource 3: Buku Pedoman UM 2017 Markdown -->
+        <div class="resource-card">
+          <div class="resource-icon">📖</div>
+          <span class="badge badge-green" style="width: fit-content; margin-bottom: 0.75rem;">Project Knowledge File</span>
+          <h3>Buku Pedoman UM 2017 (.md)</h3>
+          <p>
+            Buku Pedoman Penulisan Karya Ilmiah UM Edisi Keenam lengkap (147 KB) dalam format Markdown bersih, siap di-upload ke Claude Project Knowledge.
+          </p>
+          <div class="resource-footer">
+            <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="btn btn-outline" style="width: 100%;">
+              <span>⬇️ Unduh Pedoman (.md)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 4: Kamus Kata Baku UM -->
+        <div class="resource-card">
+          <div class="resource-icon">📝</div>
+          <span class="badge badge-navy" style="width: fit-content; margin-bottom: 0.75rem;">Modul Kebahasaan</span>
+          <h3>Kamus 100+ Kata Baku Ilmiah</h3>
+          <p>
+            Daftar kata baku vs non-baku khas karya ilmiah, aturan konjungsi terlarang awal kalimat (*Sehingga*, *Sedangkan*), dan panduan desimal koma.
+          </p>
+          <div class="resource-footer">
+            <a href="skills/audit-skripsi/reference/kamus-tata-bahasa-ilmiah.md" download class="btn btn-outline" style="width: 100%;">
+              <span>⬇️ Unduh Kamus (.md)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 5: Skala Penilaian Sidang UM -->
+        <div class="resource-card">
+          <div class="resource-icon">⚖️</div>
+          <span class="badge badge-gold" style="width: fit-content; margin-bottom: 0.75rem;">Standar Nilai Resmi</span>
+          <h3>Skala Nilai & Scorecard UM</h3>
+          <p>
+            Tabel konversi nilai mutu resmi UM (A, A-, B+, B, B-, C+, C, D, E), bobot evaluasi 5 dimensi sidang, dan template kartu penilaian ujian sidang.
+          </p>
+          <div class="resource-footer">
+            <a href="skills/audit-skripsi/reference/skala-penilaian-sidang-um.md" download class="btn btn-outline" style="width: 100%;">
+              <span>⬇️ Unduh Skala Nilai (.md)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 6: Panduan Ringkasan Artikel Jurnal -->
+        <div class="resource-card">
+          <div class="resource-icon">📑</div>
+          <span class="badge badge-green" style="width: fit-content; margin-bottom: 0.75rem;">Syarat Kelulusan</span>
+          <h3>Panduan Artikel Jurnal UM</h3>
+          <p>
+            Kaidah penulisan artikel ringkasan skripsi untuk publikasi jurnal ilmiah sesuai Bab 3 Pedoman UM 2017 (struktur IMRAD, abstrak dwibahasa, batas kata).
+          </p>
+          <div class="resource-footer">
+            <a href="skills/audit-skripsi/reference/panduan-artikel-jurnal-um.md" download class="btn btn-outline" style="width: 100%;">
+              <span>⬇️ Unduh Panduan (.md)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use in 3 Steps Section -->
+  <section id="panduan" class="section" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-navy">🚀 Mulai dalam 3 Menit</span>
+        </div>
+        <h2 class="section-title">Cara Mudah Memulai di Browser Anda</h2>
+        <p class="section-desc">
+          Tidak perlu menginstal software apa pun. Ikuti tiga langkah mudah berikut menggunakan Claude.ai atau ChatGPT.
+        </p>
+      </div>
+
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Buka Claude.ai & Buat Project</h3>
+          <p>
+            Buka <a href="https://claude.ai" target="_blank" rel="noopener" style="color: var(--primary-blue); font-weight: 700;">claude.ai</a>, klik menu <strong>Projects</strong> di sidebar kiri, lalu klik <strong>"Create Project"</strong> dan beri nama <em>"Audit Skripsi Saya"</em>.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Salin Prompt & Unggah Pedoman</h3>
+          <p>
+            Klik tombol <strong>"Salin Prompt Claude"</strong> di halaman ini, lalu tempel ke kolom <em>Custom Instructions</em> di project Anda. Kemudian unduh dan upload file <strong>Pedoman UM (.md)</strong> ke <em>Project Knowledge</em>.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Ketik Perintah & Mulai!</h3>
+          <p>
+            Buka chat baru di project Anda, lalu ketik <code>/audit</code> (untuk memeriksa bab naskah), <code>/sidang</code> (untuk simulasi ujian sidang), atau <code>/bimbingan</code> (untuk perbaikan kalimat).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-gold">❓ Pertanyaan Lazim</span>
+        </div>
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan Mahasiswa</h2>
+        <p class="section-desc">
+          Jawaban atas hal-hal yang sering ditanyakan seputar pemakaian, privasi data, dan kesesuaian pedoman.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Apakah naskah skripsi saya aman dan tidak bocor?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sangat aman! Seluruh pemrosesan dilakukan di dalam akun AI privat Anda sendiri (Claude.ai atau ChatGPT). Tidak ada data naskah atau identitas Anda yang disimpan di server publik kami.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Bagaimana jika kampus saya bukan Universitas Negeri Malang (UM)?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Pedoman UM 2017 mengacu pada standar universal APA Style dan kaidah ilmiah nasional (EYD/KBBI). Sekitar 90% aturan (benang merah, kemutakhiran 10 tahun, keprimeran rujukan jurnal ≥80%, dan kaidah ragam formal) berlaku umum di seluruh perguruan tinggi di Indonesia. Anda juga dapat mengunggah buku pedoman kampus Anda sendiri ke Project Knowledge.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Apakah saya harus mengunggah seluruh naskah skripsi sekaligus?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Tidak harus! Anda justru sangat disarankan mengaudit bab per bab (misal Bab I saja, lalu Bab II, dst.) agar umpan balik dan rekonstruksi kalimat yang diberikan oleh AI jauh lebih mendalam dan spesifik.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Bolehkah saya menggunakan ini untuk Proposal Skripsi (Sempro)?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Tentu saja! AI secara otomatis mendeteksi tahapan naskah. Jika Anda memberikan Bab I–III, sistem akan memfokuskan evaluasi pada ketajaman gap masalah, telaah pustaka mutakhir, dan operasionalitas instrumen penelitian.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic Disclaimer Box -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-icon">⚖️</div>
+        <div class="disclaimer-text">
+          <h4>PENAFIAN ETIKA AKADEMIK (ACADEMIC DISCLAIMER)</h4>
+          <p>
+            Proyek ini adalah inisiatif sumber terbuka (open source) independen untuk tujuan edukasi dan asistensi belajar mandiri mahasiswa, tidak berafiliasi institusional resmi dengan pimpinan Universitas Negeri Malang. Hasil analisis AI merupakan sarana latihan dan tidak menggantikan keputusan, arahan, atau penilaian resmi dari Dosen Pembimbing dan Dewan Penguji yang sah. Pengguna bertanggung jawab penuh atas integritas akademik dan keaslian naskah masing-masing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="brand-text">
+          <h3 style="font-size: 1.15rem; color: var(--primary-navy);">🎓 Audit Skripsi UM</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Berdasarkan Pedoman Penulisan Karya Ilmiah UM Edisi Keenam (2017)
+          </p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#masalah">Celah Kritis</a></li>
+          <li><a href="#bedah-kasus">Bedah Kasus</a></li>
+          <li><a href="#resource-hub">Resource Hub</a></li>
+          <li><a href="LICENSE">Lisensi MIT</a></li>
+          <li><a href="https://github.com/nandaaddi/audit-skripsi-um" target="_blank" rel="noopener">GitHub Repository</a></li>
+        </ul>
+      </div>
+
+      <div style="text-align: center; padding-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+        <p>Hak Cipta © 2026 Nanda Addi & Kontributor Open Source. Didistribusikan di bawah Lisensi Terbuka MIT.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Element -->
+  <div id="toast" class="toast">
+    <span>✅</span>
+    <span>Prompt Berhasil Disalin!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
