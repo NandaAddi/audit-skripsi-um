@@ -5,11 +5,12 @@
 **Sistem Audit Akademik Cerdas, Bimbingan Rekonstruksi Kalimat, dan Simulasi Sidang Dosen "Killer" Berstandar Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (UM) 2017 (Edisi Keenam)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-audit--skripsi--um.webenzelabs.id-001E52.svg?logo=google-chrome&logoColor=FEDC00)](https://audit-skripsi-um.webenzelabs.id)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen.svg)](https://www.python.org/)
 [![Standards](https://img.shields.io/badge/Standard-Pedoman_UM_2017_(Edisi_6)-orange.svg)](Pedoman-Penulisan-Karya-Ilmiah-2017.md)
 [![Platform](https://img.shields.io/badge/Platform-Claude.ai%20%7C%20Claude%20Code%20%7C%20Antigravity-purple.svg)](#-3-jalur-akses-mahasiswa)
 
-[Panduan Cepat](#-3-jalur-akses-mahasiswa) • [Fitur Utama](#-fitur-unggulan) • [Perintah Cepat](#-daftar-perintah-interaktif) • [Toolkit Otomasi Python](#-toolkit-otomasi-python-offline) • [Kontribusi](CONTRIBUTING.md)
+[🌐 Buka Website](https://audit-skripsi-um.webenzelabs.id) • [Panduan Cepat](#-3-jalur-akses-mahasiswa) • [Fitur Utama](#-fitur-unggulan) • [Perintah Cepat](#-daftar-perintah-interaktif) • [Toolkit Otomasi Python](#-toolkit-otomasi-python-offline) • [Kontribusi](CONTRIBUTING.md)
 
 </div>
 

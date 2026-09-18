@@ -62,9 +62,10 @@ Mahasiswa: "Terima kasih atas pertanyaannya. Pemilihan purposive sampling didasa
 };
 
 // Data 4 Langkah Visual Simulator Claude.ai
+// Data 5 Langkah Visual Simulator Claude.ai
 const CLAUDE_GUIDE_STEPS = {
   1: {
-    badge: "Langkah 01 dari 04",
+    badge: "Langkah 01 dari 05",
     title: "Buka claude.ai & Buat Project Baru",
     desc: `
       <ol class="sim-steps-list">
@@ -89,15 +90,23 @@ const CLAUDE_GUIDE_STEPS = {
           <div class="mockup-dialog-box">
             <h5>Create new project</h5>
             <p>Ruang kerja privat untuk menelaah naskah skripsi Anda</p>
-            <div class="mockup-input-field">Audit Skripsi UM</div>
-            <button class="btn btn-navy btn-sm" style="width: 100%;">Create Project</button>
+            <div class="mockup-input-wrapper">
+              <label class="mockup-input-label">Nama Project</label>
+              <div id="simStep1Input" class="mockup-input-field">
+                <span id="simStep1Typed"></span><span id="simStep1Cursor" class="typing-cursor">|</span>
+              </div>
+            </div>
+            <button id="simStep1Btn" class="btn btn-navy btn-sm" style="width: 100%;">Create Project</button>
+            <div id="simStep1Toast" class="sim-toast-success">
+              <span class="toast-check">✓</span> Project "Audit Skripsi UM" berhasil dibuat!
+            </div>
           </div>
         </div>
       </div>
     `
   },
   2: {
-    badge: "Langkah 02 dari 04",
+    badge: "Langkah 02 dari 05",
     title: "Masukkan Instruksi Kustom (Custom Instructions)",
     desc: `
       <ol class="sim-steps-list">
@@ -111,24 +120,30 @@ const CLAUDE_GUIDE_STEPS = {
     urlBar: "claude.ai/project/audit-skripsi-um/settings",
     mockup: `
       <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-          <h5 style="margin: 0;">Custom Instructions</h5>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+          <h5 style="margin: 0; font-size: 0.95rem;">Custom Instructions</h5>
           <span class="tag tag-navy" style="font-size: 0.7rem;">Standar UM 2017</span>
         </div>
-        <div class="mockup-preview-textarea">
-# IDENTITAS & PERSONA — AUDIT SKRIPSI UM 2017
-Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmiah UM 2017 (Edisi Keenam).
-- /audit  : Telaah komprehensif naskah bab
-- /sidang : Simulasi tanya-jawab sidang 4 ronde
-- Rujukan : Minimal 80% rujukan jurnal 10 tahun terakhir
-- Simpulan: Bentuk alinea naratif padat tanpa angka statistik...
+        <div id="simStep2Notice" class="sim-paste-notice">
+          <span>📋</span> Menempelkan teks instruksi sistem UM 2017...
         </div>
-        <button class="btn btn-navy btn-sm" style="width: 100%;">Save instructions</button>
+        <div id="simStep2CodeArea" class="mockup-preview-textarea">
+          <div class="code-stream-line hl-comment" id="line1"># IDENTITAS &amp; PERSONA — AUDIT SKRIPSI UM 2017</div>
+          <div class="code-stream-line hl-item" id="line2">• Mitra telaah karya ilmiah berbasis Pedoman UM 2017</div>
+          <div class="code-stream-line hl-item" id="line3">• /audit : Telaah keselarasan benang merah bab</div>
+          <div class="code-stream-line hl-item" id="line4">• /sidang : Simulasi penguji senior 4 ronde bertahap</div>
+          <div class="code-stream-line hl-item" id="line5">• Syarat Mutlak : Minimal 80% jurnal 10 tahun terakhir</div>
+          <div class="code-stream-line hl-item" id="line6">• Simpulan : Alinea naratif padat bebas angka statistik</div>
+        </div>
+        <button id="simStep2Btn" class="btn btn-navy btn-sm" style="width: 100%;">Save instructions</button>
+        <div id="simStep2Toast" class="sim-toast-success">
+          <span class="toast-check">✓</span> Seluruh Standar Pedoman UM 2017 Tersimpan Aktif
+        </div>
       </div>
     `
   },
   3: {
-    badge: "Langkah 03 dari 04",
+    badge: "Langkah 03 dari 05",
     title: "Unggah 5 Berkas Acuan Terpisah ke Knowledge",
     desc: `
       <ol class="sim-steps-list">
@@ -143,68 +158,163 @@ Kamu adalah mitra penelaahan karya ilmiah berbasis Pedoman Penulisan Karya Ilmia
       <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
           <h5 style="margin: 0; font-size: 0.9rem;">Project Knowledge</h5>
-          <span class="tag tag-navy" style="font-size: 0.7rem;">5 Berkas Terpisah Terunggah</span>
+          <span id="simStep3Badge" class="tag tag-navy" style="font-size: 0.7rem;">0 dari 5 Berkas Terunggah</span>
         </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
-          <div class="file-info">
-            <h6 style="font-size: 0.785rem;">Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
-            <span style="font-size: 0.685rem;">147 KB • Buku Pedoman Utama Edisi Keenam</span>
+        <div id="simStep3Cards" class="sim-cards-container">
+          <div class="animated-file-card" id="fileCard0">
+            <div class="card-top-row">
+              <div>
+                <h6>Pedoman-Penulisan-Karya-Ilmiah-2017.md</h6>
+                <span>147 KB • Buku Pedoman Induk Edisi Keenam</span>
+              </div>
+              <span class="file-badge-state" id="fileBadge0">Mengunggah...</span>
+            </div>
+            <div class="file-progress-track">
+              <div class="file-progress-fill" id="fileProgress0"></div>
+            </div>
           </div>
-          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+          <div class="animated-file-card" id="fileCard1">
+            <div class="card-top-row">
+              <div>
+                <h6>rubrik-audit-um2017.md</h6>
+                <span>10 KB • Rubrik 8 Dimensi Telaah Skripsi UM</span>
+              </div>
+              <span class="file-badge-state" id="fileBadge1">Mengunggah...</span>
+            </div>
+            <div class="file-progress-track">
+              <div class="file-progress-fill" id="fileProgress1"></div>
+            </div>
+          </div>
+          <div class="animated-file-card" id="fileCard2">
+            <div class="card-top-row">
+              <div>
+                <h6>kamus-tata-bahasa-ilmiah.md</h6>
+                <span>9 KB • Pasangan Kata Baku &amp; Aturan Konjungsi</span>
+              </div>
+              <span class="file-badge-state" id="fileBadge2">Mengunggah...</span>
+            </div>
+            <div class="file-progress-track">
+              <div class="file-progress-fill" id="fileProgress2"></div>
+            </div>
+          </div>
+          <div class="animated-file-card" id="fileCard3">
+            <div class="card-top-row">
+              <div>
+                <h6>skala-penilaian-sidang-um.md</h6>
+                <span>8 KB • Standar Nilai A–E &amp; Kriteria Sidang</span>
+              </div>
+              <span class="file-badge-state" id="fileBadge3">Mengunggah...</span>
+            </div>
+            <div class="file-progress-track">
+              <div class="file-progress-fill" id="fileProgress3"></div>
+            </div>
+          </div>
+          <div class="animated-file-card" id="fileCard4">
+            <div class="card-top-row">
+              <div>
+                <h6>panduan-artikel-jurnal-um.md</h6>
+                <span>6 KB • Format IMRAD Publikasi Ilmiah UM</span>
+              </div>
+              <span class="file-badge-state" id="fileBadge4">Mengunggah...</span>
+            </div>
+            <div class="file-progress-track">
+              <div class="file-progress-fill" id="fileProgress4"></div>
+            </div>
+          </div>
         </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
-          <div class="file-info">
-            <h6 style="font-size: 0.785rem;">rubrik-audit-um2017.md</h6>
-            <span style="font-size: 0.685rem;">10 KB • Rubrik Penilaian 8 Dimensi UM</span>
-          </div>
-          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
-        </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
-          <div class="file-info">
-            <h6 style="font-size: 0.785rem;">kamus-tata-bahasa-ilmiah.md</h6>
-            <span style="font-size: 0.685rem;">9 KB • 100+ Pasangan Kata Baku & Sintaksis</span>
-          </div>
-          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
-        </div>
-        <div class="mockup-file-card" style="margin-bottom: 0.25rem; padding: 0.5rem 0.8rem;">
-          <div class="file-info">
-            <h6 style="font-size: 0.785rem;">skala-penilaian-sidang-um.md</h6>
-            <span style="font-size: 0.685rem;">8 KB • Standar Nilai Mutu A-E & Lembar Sidang</span>
-          </div>
-          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
-        </div>
-        <div class="mockup-file-card" style="padding: 0.5rem 0.8rem;">
-          <div class="file-info">
-            <h6 style="font-size: 0.785rem;">panduan-artikel-jurnal-um.md</h6>
-            <span style="font-size: 0.685rem;">6 KB • Format Publikasi Jurnal IMRAD</span>
-          </div>
-          <span style="font-size: 0.725rem; color: #0f2347; font-weight: 700;">Tersimpan</span>
+        <div id="simStep3Toast" class="sim-toast-success">
+          <span class="toast-check">✓</span> 5 Berkas Pedoman Terindeks Siap Menjadi Rujukan
         </div>
       </div>
     `
   },
   4: {
-    badge: "Langkah 04 dari 04",
-    title: "Mulai Chat & Kirimkan Naskah Bab",
+    badge: "Langkah 04 dari 05",
+    title: "Unggah Draf / Berkas Naskah Skripsi Anda",
+    desc: `
+      <ol class="sim-steps-list">
+        <li><strong>Siapkan Berkas Naskah:</strong> Gunakan draf naskah skripsi Anda dalam format <code>.docx</code> (Microsoft Word) atau <code>.pdf</code>.</li>
+        <li><strong>Rekomendasi Unggah per Bab:</strong> Sangat dianjurkan menelaah naskah bab demi bab (misal Bab I atau Proposal Bab I–III) agar telaah logika dan rujukan mendalam tanpa batasan panjang teks.</li>
+        <li><strong>Lampirkan ke Chat:</strong> Klik ikon lampiran klip kertas (📎) di kolom percakapan Claude atau seret (drag-and-drop) berkas naskah Anda ke dalam ruang kerja.</li>
+      </ol>
+    `,
+    actionType: "draft_tips",
+    urlBar: "claude.ai/project/audit-skripsi-um/chat",
+    mockup: `
+      <div class="mockup-dialog-box" style="box-shadow: none; padding: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+          <h5 style="margin: 0; font-size: 0.95rem;">Lampiran Berkas Naskah</h5>
+          <span class="tag tag-lime" style="font-size: 0.7rem;">Format .docx / .pdf</span>
+        </div>
+        <div id="simStep4Dropzone" class="sim-upload-dropzone">
+          <div id="simStep4DropContent" class="dropzone-inner">
+            <div class="dropzone-icon">📄</div>
+            <div class="dropzone-title">Seret berkas draf naskah ke sini</div>
+            <div class="dropzone-sub">Mendukung Microsoft Word (.docx) atau PDF (.pdf)</div>
+          </div>
+          <div id="simStep4FileAttached" class="sim-attached-file-pill">
+            <div class="file-icon-box">DOCX</div>
+            <div class="file-meta">
+              <strong>Draf_Skripsi_Bab1_Pendahuluan.docx</strong>
+              <span>1.8 MB • Bab I Pendahuluan S1 UM</span>
+            </div>
+            <div id="simStep4UploadBadge" class="file-status-badge">
+              Mengunggah...
+            </div>
+          </div>
+          <div class="file-progress-track" id="simStep4ProgressTrack" style="margin-top: 0.5rem; display: none;">
+            <div class="file-progress-fill" id="simStep4ProgressBar"></div>
+          </div>
+        </div>
+        <div class="sim-prompt-preview-box">
+          <div class="prompt-preview-label">Keterangan Prompt Bersama Berkas:</div>
+          <div class="prompt-preview-text" id="simStep4PromptText">
+            <span id="simStep4PromptTyped"></span><span id="simStep4PromptCursor" class="typing-cursor">|</span>
+          </div>
+        </div>
+        <button id="simStep4SendBtn" class="btn btn-navy btn-sm" style="width: 100%; margin-top: 0.75rem;">
+          Lampirkan &amp; Siapkan Telaah ➔
+        </button>
+        <div id="simStep4Toast" class="sim-toast-success">
+          <span class="toast-check">✓</span> Berkas Draf Bab I Terlampir Siap Ditelaah
+        </div>
+      </div>
+    `
+  },
+  5: {
+    badge: "Langkah 05 dari 05",
+    title: "Mulai Chat & Jalankan Perintah Telaah",
     desc: `
       <ol class="sim-steps-list">
         <li><strong>Buka Chat:</strong> Klik tombol <strong>Start chat</strong> di dalam project Claude Anda.</li>
-        <li><strong>Ketik Perintah Telaah:</strong> Klik salah satu perintah cepat di bawah untuk menyalin perintah, lalu tempelkan draf bab naskah Anda.</li>
-        <li><strong>Terima Masukan Seketika:</strong> Claude akan menelaah naskah Anda sesuai Pedoman UM atau menyimulasikan ujian sidang.</li>
+        <li><strong>Ketik Perintah Telaah:</strong> Klik salah satu tombol perintah cepat di bawah untuk menyalin perintah (misal <code>/audit</code> atau <code>/sidang</code>) bersama berkas draf yang sudah terlampir.</li>
+        <li><strong>Terima Masukan Seketika:</strong> Claude akan membedah naskah Anda sesuai Pedoman UM 2017 dan menyajikan laporan kelayakan ilmiah.</li>
       </ol>
     `,
     actionType: "chips",
     urlBar: "claude.ai/project/audit-skripsi-um/chat",
     mockup: `
-      <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-        <div class="mockup-chat-bubble user">
-          /audit Bab I Latar Belakang Masalah...
+      <div class="sim-chat-container">
+        <div id="simChatUser" class="mockup-chat-bubble user sim-anim-bubble">
+          <div class="chat-sender">Mahasiswa</div>
+          <div class="chat-text">/audit Bab I Latar Belakang Masalah (Draf Naskah Terlampir)</div>
         </div>
-        <div class="mockup-chat-bubble claude">
-          <strong>Laporan Penelaahan Skripsi — Standar UM 2017:</strong><br>
-          • Nilai Mutu: A (Sangat Memuaskan)<br>
-          • Benang Merah: Rumusan masalah selaras dengan kesenjangan empiris.<br>
-          • Catatan: Ubah konjungsi "sehingga" di awal kalimat alinea ke-3.
+        <div id="simChatThinking" class="mockup-thinking-bubble">
+          <div class="thinking-dots">
+            <span class="thinking-dot"></span>
+            <span class="thinking-dot"></span>
+            <span class="thinking-dot"></span>
+          </div>
+          <span>Claude menganalisis naskah berdasarkan Pedoman UM 2017...</span>
+        </div>
+        <div id="simChatClaude" class="mockup-chat-bubble claude sim-anim-bubble">
+          <div class="chat-sender-claude">Claude • Evaluator Akademik UM</div>
+          <div class="claude-response-content">
+            <div class="report-badge">📊 Hasil Evaluasi Bab I Standar UM 2017:</div>
+            <div class="report-point" id="simPt1"><span class="point-icon check">✓</span> <div><strong>Benang Merah:</strong> Rumusan masalah selaras dengan kesenjangan empiris.</div></div>
+            <div class="report-point" id="simPt2"><span class="point-icon check">✓</span> <div><strong>Kajian Pustaka:</strong> 85% rujukan merupakan artikel jurnal 10 tahun terakhir.</div></div>
+            <div class="report-point" id="simPt3"><span class="point-icon warn">⚠</span> <div><strong>Tata Bahasa:</strong> Perbaiki konjungsi <em>"sehingga"</em> di awal kalimat alinea ke-3.</div></div>
+          </div>
         </div>
       </div>
     `
@@ -239,6 +349,421 @@ PERINTAH:
 - /cek-rujukan : Pemeriksaan kemutakhiran dan keprimeran rujukan.`;
 
 let currentStep = 1;
+let activeAnimationTimeouts = [];
+
+function clearActiveAnimations() {
+  activeAnimationTimeouts.forEach(id => clearTimeout(id));
+  activeAnimationTimeouts = [];
+}
+
+function addAnimTimeout(callback, delay) {
+  const id = setTimeout(callback, delay);
+  activeAnimationTimeouts.push(id);
+  return id;
+}
+
+function playStepAnimation(stepNum) {
+  clearActiveAnimations();
+
+  if (stepNum === 1) {
+    const typedEl = document.getElementById("simStep1Typed");
+    const cursorEl = document.getElementById("simStep1Cursor");
+    const btnEl = document.getElementById("simStep1Btn");
+    const toastEl = document.getElementById("simStep1Toast");
+
+    if (!typedEl || !btnEl) return;
+
+    typedEl.textContent = "";
+    if (cursorEl) cursorEl.style.display = "inline";
+    btnEl.className = "btn btn-navy btn-sm";
+    btnEl.style.width = "100%";
+    btnEl.textContent = "Create Project";
+    if (toastEl) toastEl.classList.remove("show");
+
+    const textToType = "Audit Skripsi UM";
+    for (let i = 0; i < textToType.length; i++) {
+      addAnimTimeout(() => {
+        typedEl.textContent = textToType.slice(0, i + 1);
+      }, 250 + i * 65);
+    }
+
+    const typingDuration = 250 + textToType.length * 65;
+
+    addAnimTimeout(() => {
+      if (cursorEl) cursorEl.style.display = "none";
+      btnEl.classList.add("btn-active-click");
+    }, typingDuration + 300);
+
+    addAnimTimeout(() => {
+      btnEl.classList.remove("btn-active-click");
+      btnEl.classList.add("btn-anim-success");
+      btnEl.textContent = "✓ Project Created";
+      if (toastEl) toastEl.classList.add("show");
+    }, typingDuration + 550);
+  } else if (stepNum === 2) {
+    const noticeEl = document.getElementById("simStep2Notice");
+    const lines = [
+      document.getElementById("line1"),
+      document.getElementById("line2"),
+      document.getElementById("line3"),
+      document.getElementById("line4"),
+      document.getElementById("line5"),
+      document.getElementById("line6")
+    ];
+    const btnEl = document.getElementById("simStep2Btn");
+    const toastEl = document.getElementById("simStep2Toast");
+
+    if (!btnEl) return;
+
+    if (noticeEl) noticeEl.classList.remove("show");
+    lines.forEach(l => l && l.classList.remove("show"));
+    btnEl.className = "btn btn-navy btn-sm";
+    btnEl.style.width = "100%";
+    btnEl.textContent = "Save instructions";
+    if (toastEl) toastEl.classList.remove("show");
+
+    addAnimTimeout(() => {
+      if (noticeEl) noticeEl.classList.add("show");
+    }, 150);
+
+    lines.forEach((line, idx) => {
+      if (line) {
+        addAnimTimeout(() => {
+          line.classList.add("show");
+        }, 350 + idx * 200);
+      }
+    });
+
+    const linesDuration = 350 + lines.length * 200;
+
+    addAnimTimeout(() => {
+      btnEl.classList.add("btn-active-click");
+    }, linesDuration + 250);
+
+    addAnimTimeout(() => {
+      btnEl.classList.remove("btn-active-click");
+      btnEl.classList.add("btn-anim-success");
+      btnEl.textContent = "✓ Instructions Saved";
+      if (toastEl) toastEl.classList.add("show");
+    }, linesDuration + 500);
+  } else if (stepNum === 3) {
+    const badgeEl = document.getElementById("simStep3Badge");
+    const toastEl = document.getElementById("simStep3Toast");
+    const fileCount = 5;
+
+    for (let i = 0; i < fileCount; i++) {
+      const card = document.getElementById(`fileCard${i}`);
+      const prog = document.getElementById(`fileProgress${i}`);
+      const badge = document.getElementById(`fileBadge${i}`);
+
+      if (card) {
+        card.classList.remove("show", "done");
+      }
+      if (prog) prog.style.width = "0%";
+      if (badge) {
+        badge.classList.remove("done");
+        badge.textContent = "Mengunggah...";
+      }
+    }
+    if (badgeEl) badgeEl.textContent = "0 dari 5 Berkas Terunggah";
+    if (toastEl) toastEl.classList.remove("show");
+
+    for (let i = 0; i < fileCount; i++) {
+      const startTime = 200 + i * 360;
+      addAnimTimeout(() => {
+        const card = document.getElementById(`fileCard${i}`);
+        const prog = document.getElementById(`fileProgress${i}`);
+        if (card) card.classList.add("show");
+        if (prog) prog.style.width = "100%";
+      }, startTime);
+
+      addAnimTimeout(() => {
+        const card = document.getElementById(`fileCard${i}`);
+        const badge = document.getElementById(`fileBadge${i}`);
+        if (card) card.classList.add("done");
+        if (badge) {
+          badge.classList.add("done");
+          badge.textContent = "Tersimpan ✓";
+        }
+        if (badgeEl) badgeEl.textContent = `${i + 1} dari 5 Berkas Terunggah`;
+      }, startTime + 300);
+    }
+
+    addAnimTimeout(() => {
+      if (toastEl) toastEl.classList.add("show");
+    }, 200 + fileCount * 360 + 250);
+  } else if (stepNum === 4) {
+    const dropzone = document.getElementById("simStep4Dropzone");
+    const dropContent = document.getElementById("simStep4DropContent");
+    const fileAttached = document.getElementById("simStep4FileAttached");
+    const progressTrack = document.getElementById("simStep4ProgressTrack");
+    const progressBar = document.getElementById("simStep4ProgressBar");
+    const uploadBadge = document.getElementById("simStep4UploadBadge");
+    const promptTyped = document.getElementById("simStep4PromptTyped");
+    const promptCursor = document.getElementById("simStep4PromptCursor");
+    const sendBtn = document.getElementById("simStep4SendBtn");
+    const toastEl = document.getElementById("simStep4Toast");
+
+    if (!dropzone) return;
+
+    // Reset initial state
+    dropzone.classList.remove("active");
+    if (dropContent) {
+      dropContent.style.display = "flex";
+      dropContent.classList.remove("hide");
+    }
+    if (fileAttached) fileAttached.classList.remove("show");
+    if (progressTrack) progressTrack.style.display = "none";
+    if (progressBar) progressBar.style.width = "0%";
+    if (uploadBadge) {
+      uploadBadge.className = "file-status-badge";
+      uploadBadge.textContent = "Mengunggah...";
+    }
+    if (promptTyped) promptTyped.textContent = "";
+    if (promptCursor) promptCursor.style.display = "inline";
+    if (sendBtn) {
+      sendBtn.className = "btn btn-navy btn-sm";
+      sendBtn.style.width = "100%";
+      sendBtn.style.marginTop = "0.75rem";
+      sendBtn.innerHTML = `<span>Lampirkan &amp; Siapkan Telaah</span> ➔`;
+    }
+    if (toastEl) toastEl.classList.remove("show");
+
+    // Sequence 1: Drag & drop hover active
+    addAnimTimeout(() => {
+      dropzone.classList.add("active");
+    }, 250);
+
+    // Sequence 2: File dropped -> show attached pill & progress bar
+    addAnimTimeout(() => {
+      dropzone.classList.remove("active");
+      if (dropContent) {
+        dropContent.classList.add("hide");
+        dropContent.style.display = "none";
+      }
+      if (fileAttached) fileAttached.classList.add("show");
+      if (progressTrack) progressTrack.style.display = "block";
+      if (progressBar) progressBar.style.width = "100%";
+    }, 700);
+
+    // Sequence 3: Upload finished
+    addAnimTimeout(() => {
+      if (uploadBadge) {
+        uploadBadge.classList.add("done");
+        uploadBadge.textContent = "Terlampir ✓";
+      }
+    }, 1300);
+
+    // Sequence 4: Type accompanying prompt
+    const promptToType = "/audit Bab I: Telaah keselarasan latar belakang dan kemutakhiran 80% rujukan jurnal.";
+    const startTypeTime = 1500;
+    for (let i = 0; i < promptToType.length; i++) {
+      addAnimTimeout(() => {
+        if (promptTyped) promptTyped.textContent = promptToType.slice(0, i + 1);
+      }, startTypeTime + i * 25);
+    }
+
+    const typeDuration = startTypeTime + promptToType.length * 25;
+
+    // Sequence 5: Click button & show toast
+    addAnimTimeout(() => {
+      if (promptCursor) promptCursor.style.display = "none";
+      if (sendBtn) sendBtn.classList.add("btn-active-click");
+    }, typeDuration + 200);
+
+    addAnimTimeout(() => {
+      if (sendBtn) {
+        sendBtn.classList.remove("btn-active-click");
+        sendBtn.classList.add("btn-anim-success");
+        sendBtn.textContent = "✓ Berkas & Prompt Siap Dikirim";
+      }
+      if (toastEl) toastEl.classList.add("show");
+    }, typeDuration + 450);
+  } else if (stepNum === 5) {
+    const userBubble = document.getElementById("simChatUser");
+    const thinkingBubble = document.getElementById("simChatThinking");
+    const claudeBubble = document.getElementById("simChatClaude");
+    const pt1 = document.getElementById("simPt1");
+    const pt2 = document.getElementById("simPt2");
+    const pt3 = document.getElementById("simPt3");
+
+    if (userBubble) userBubble.classList.remove("show");
+    if (thinkingBubble) {
+      thinkingBubble.style.display = "flex";
+      thinkingBubble.classList.remove("show");
+    }
+    if (claudeBubble) claudeBubble.classList.remove("show");
+    if (pt1) pt1.classList.remove("show");
+    if (pt2) pt2.classList.remove("show");
+    if (pt3) pt3.classList.remove("show");
+
+    addAnimTimeout(() => {
+      if (userBubble) userBubble.classList.add("show");
+    }, 200);
+
+    addAnimTimeout(() => {
+      if (thinkingBubble) thinkingBubble.classList.add("show");
+    }, 600);
+
+    addAnimTimeout(() => {
+      if (thinkingBubble) {
+        thinkingBubble.classList.remove("show");
+        thinkingBubble.style.display = "none";
+      }
+      if (claudeBubble) claudeBubble.classList.add("show");
+    }, 1800);
+
+    addAnimTimeout(() => {
+      if (pt1) pt1.classList.add("show");
+    }, 2050);
+
+    addAnimTimeout(() => {
+      if (pt2) pt2.classList.add("show");
+    }, 2350);
+
+    addAnimTimeout(() => {
+      if (pt3) pt3.classList.add("show");
+    }, 2650);
+  }
+}
+
+// Auto-Play Tour Controller
+let isTourActive = false;
+let isTourPaused = false;
+let tourStepTimer = null;
+let tourProgressInterval = null;
+let tourStartTime = 0;
+let tourElapsed = 0;
+const STEP_TOUR_DURATION = 4200; // ms per langkah
+
+function stopAutoPlayTour(resetUI = true) {
+  isTourActive = false;
+  isTourPaused = false;
+  if (tourStepTimer) clearTimeout(tourStepTimer);
+  if (tourProgressInterval) clearInterval(tourProgressInterval);
+  tourStepTimer = null;
+  tourProgressInterval = null;
+  tourElapsed = 0;
+
+  const progressFill = document.getElementById("simTourProgressFill");
+  if (progressFill) progressFill.style.width = "0%";
+
+  if (resetUI) {
+    const playBtn = document.getElementById("btnAutoPlayTour");
+    const tourText = document.getElementById("tourBtnText");
+    if (playBtn) {
+      playBtn.classList.remove("active", "paused");
+      const icon = playBtn.querySelector(".tour-icon");
+      if (icon) icon.textContent = "▶";
+    }
+    if (tourText) tourText.textContent = "Putar Animasi Demo";
+  }
+}
+
+function startAutoPlayTour(fromStep = 1) {
+  isTourActive = true;
+  isTourPaused = false;
+  tourElapsed = 0;
+
+  const playBtn = document.getElementById("btnAutoPlayTour");
+  const tourText = document.getElementById("tourBtnText");
+  if (playBtn) {
+    playBtn.classList.add("active");
+    playBtn.classList.remove("paused");
+    const icon = playBtn.querySelector(".tour-icon");
+    if (icon) icon.textContent = "⏸";
+  }
+  if (tourText) tourText.textContent = "Jeda Demo";
+
+  renderGuideStep(fromStep);
+  runTourStep(fromStep);
+}
+
+function runTourStep(stepNum) {
+  if (!isTourActive || isTourPaused) return;
+
+  if (tourStepTimer) clearTimeout(tourStepTimer);
+  if (tourProgressInterval) clearInterval(tourProgressInterval);
+
+  tourStartTime = Date.now() - tourElapsed;
+  const progressFill = document.getElementById("simTourProgressFill");
+
+  tourProgressInterval = setInterval(() => {
+    if (!isTourActive || isTourPaused) return;
+    const elapsed = Date.now() - tourStartTime;
+    const pct = Math.min(100, (elapsed / STEP_TOUR_DURATION) * 100);
+    if (progressFill) progressFill.style.width = `${pct}%`;
+  }, 40);
+
+  const remaining = Math.max(100, STEP_TOUR_DURATION - tourElapsed);
+
+  tourStepTimer = setTimeout(() => {
+    clearInterval(tourProgressInterval);
+    tourElapsed = 0;
+    if (progressFill) progressFill.style.width = "0%";
+
+    if (stepNum < 5) {
+      const next = stepNum + 1;
+      renderGuideStep(next);
+      runTourStep(next);
+    } else {
+      isTourActive = false;
+      const playBtn = document.getElementById("btnAutoPlayTour");
+      const tourText = document.getElementById("tourBtnText");
+      if (playBtn) {
+        playBtn.classList.remove("active", "paused");
+        const icon = playBtn.querySelector(".tour-icon");
+        if (icon) icon.textContent = "↻";
+      }
+      if (tourText) tourText.textContent = "Putar Ulang Demo";
+    }
+  }, remaining);
+}
+
+function pauseAutoPlayTour() {
+  if (!isTourActive || isTourPaused) return;
+  isTourPaused = true;
+  tourElapsed = Date.now() - tourStartTime;
+  if (tourStepTimer) clearTimeout(tourStepTimer);
+  if (tourProgressInterval) clearInterval(tourProgressInterval);
+
+  const playBtn = document.getElementById("btnAutoPlayTour");
+  const tourText = document.getElementById("tourBtnText");
+  if (playBtn) {
+    playBtn.classList.remove("active");
+    playBtn.classList.add("paused");
+    const icon = playBtn.querySelector(".tour-icon");
+    if (icon) icon.textContent = "▶";
+  }
+  if (tourText) tourText.textContent = "Lanjutkan Demo";
+}
+
+function resumeAutoPlayTour() {
+  if (!isTourActive || !isTourPaused) return;
+  isTourPaused = false;
+  const playBtn = document.getElementById("btnAutoPlayTour");
+  const tourText = document.getElementById("tourBtnText");
+  if (playBtn) {
+    playBtn.classList.add("active");
+    playBtn.classList.remove("paused");
+    const icon = playBtn.querySelector(".tour-icon");
+    if (icon) icon.textContent = "⏸";
+  }
+  if (tourText) tourText.textContent = "Jeda Demo";
+
+  runTourStep(currentStep);
+}
+
+function toggleAutoPlayTour() {
+  if (!isTourActive) {
+    const startStep = currentStep === 5 ? 1 : currentStep;
+    startAutoPlayTour(startStep);
+  } else if (isTourPaused) {
+    resumeAutoPlayTour();
+  } else {
+    pauseAutoPlayTour();
+  }
+}
 
 function renderGuideStep(stepNum) {
   const step = CLAUDE_GUIDE_STEPS[stepNum];
@@ -251,8 +776,10 @@ function renderGuideStep(stepNum) {
   navBtns.forEach((btn, idx) => {
     if (idx + 1 === stepNum) {
       btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
     } else {
       btn.classList.remove("active");
+      btn.setAttribute("aria-selected", "false");
     }
   });
 
@@ -268,7 +795,7 @@ function renderGuideStep(stepNum) {
   if (badgeEl) badgeEl.textContent = step.badge;
   if (titleEl) titleEl.textContent = step.title;
   if (descEl) descEl.innerHTML = step.desc;
-  if (stepCounterEl) stepCounterEl.textContent = `Langkah ${stepNum} dari 4`;
+  if (stepCounterEl) stepCounterEl.textContent = `Langkah ${stepNum} dari 5`;
   if (urlBarEl) urlBarEl.textContent = step.urlBar;
   if (windowContentEl) windowContentEl.innerHTML = step.mockup;
 
@@ -299,6 +826,23 @@ function renderGuideStep(stepNum) {
           </div>
         </div>
       `;
+    } else if (step.actionType === "draft_tips") {
+      actionAreaEl.innerHTML = `
+        <div class="quick-chips-wrap">
+          <span class="chips-label">Pilihan Cepat Penyiapan Draf:</span>
+          <div class="quick-chips-grid">
+            <button class="quick-chip" id="chipCopyFilename" data-text="Skripsi_S1_UM_Bab1_Pendahuluan.docx">📋 Salin Format Nama File</button>
+            <button class="quick-chip" id="chipCopyBabPrompt" data-text="/audit Bab I: Mohon telaah keselarasan latar belakang masalah, kesenjangan empiris, dan proporsi 80% rujukan jurnal.">💬 Salin Perintah Telaah Bab I</button>
+          </div>
+        </div>
+      `;
+      const copyChips = actionAreaEl.querySelectorAll(".quick-chip");
+      copyChips.forEach(chip => {
+        chip.addEventListener("click", () => {
+          const txt = chip.getAttribute("data-text");
+          copyText(txt, "Teks berhasil disalin ke clipboard!");
+        });
+      });
     } else if (step.actionType === "download") {
       actionAreaEl.innerHTML = `
         <a href="${step.actionHref}" download class="btn btn-muted btn-sm">
@@ -339,7 +883,10 @@ function renderGuideStep(stepNum) {
   const prevBtn = document.getElementById("btnSimPrev");
   const nextBtn = document.getElementById("btnSimNext");
   if (prevBtn) prevBtn.disabled = (stepNum === 1);
-  if (nextBtn) nextBtn.disabled = (stepNum === 4);
+  if (nextBtn) nextBtn.disabled = (stepNum === 5);
+
+  // Jalankan animasi interaktif langkah ini
+  playStepAnimation(stepNum);
 }
 
 function renderCaseStudy(key) {
@@ -433,7 +980,123 @@ function fallbackCopy(text, successMessage) {
   document.body.removeChild(textArea);
 }
 
+/**
+ * -------------------------------------------------------------------------
+ * SISTEM ANIMASI MODERN (Sleek Academic Motion System)
+ * -------------------------------------------------------------------------
+ */
+
+// 1. Reading Progress Bar Controller
+function initReadingProgressBar() {
+  const progressBar = document.getElementById("readingProgressFill");
+  if (!progressBar) return;
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollHeight > 0) {
+          const progress = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
+          progressBar.style.width = progress + "%";
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+// 2. Scroll Reveal & Stagger Grid Controller (IntersectionObserver)
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll(".reveal-on-scroll, .stagger-grid");
+  if (!revealElements.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach(el => el.classList.add("revealed"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: "0px 0px -40px 0px",
+    threshold: 0.12
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+}
+
+// 3. Count-Up Numbers Controller
+function initCountUp() {
+  const countElements = document.querySelectorAll(".count-num, #heroScoreNum");
+  if (!countElements.length) return;
+
+  function animateCount(el) {
+    const target = parseInt(el.getAttribute("data-count"), 10);
+    if (isNaN(target)) return;
+    const isComma = el.getAttribute("data-format") === "comma";
+    const duration = 1400; // ms
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(ease * target);
+
+      if (isComma) {
+        el.textContent = current.toLocaleString("id-ID");
+      } else {
+        el.textContent = current;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        if (isComma) {
+          el.textContent = target.toLocaleString("id-ID");
+        } else {
+          el.textContent = target;
+        }
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    countElements.forEach(el => animateCount(el));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  countElements.forEach(el => observer.observe(el));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Inisialisasi Sistem Animasi Modern
+  initReadingProgressBar();
+  initScrollReveal();
+  initCountUp();
+
   // Inisialisasi Case Study default
   renderCaseStudy("bab1");
 
@@ -444,8 +1107,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabBtns = document.querySelectorAll(".viewer-tab-btn");
   tabBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      tabBtns.forEach(b => b.classList.remove("active"));
+      tabBtns.forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
       const target = btn.getAttribute("data-target");
       renderCaseStudy(target);
     });
@@ -455,6 +1122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const simNavBtns = document.querySelectorAll(".sim-nav-btn");
   simNavBtns.forEach(btn => {
     btn.addEventListener("click", () => {
+      stopAutoPlayTour(true);
       const step = parseInt(btn.getAttribute("data-step"), 10);
       renderGuideStep(step);
     });
@@ -464,6 +1132,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnSimPrev = document.getElementById("btnSimPrev");
   if (btnSimPrev) {
     btnSimPrev.addEventListener("click", () => {
+      stopAutoPlayTour(true);
       if (currentStep > 1) renderGuideStep(currentStep - 1);
     });
   }
@@ -471,7 +1140,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnSimNext = document.getElementById("btnSimNext");
   if (btnSimNext) {
     btnSimNext.addEventListener("click", () => {
-      if (currentStep < 4) renderGuideStep(currentStep + 1);
+      stopAutoPlayTour(true);
+      if (currentStep < 5) renderGuideStep(currentStep + 1);
+    });
+  }
+
+  // Tombol Putar Animasi Tur Otomatis
+  const btnAutoPlayTour = document.getElementById("btnAutoPlayTour");
+  if (btnAutoPlayTour) {
+    btnAutoPlayTour.addEventListener("click", () => {
+      toggleAutoPlayTour();
+    });
+  }
+
+  // Tombol Ulangi Animasi (Replay)
+  const btnReplayAnim = document.getElementById("btnReplayAnim");
+  if (btnReplayAnim) {
+    btnReplayAnim.addEventListener("click", () => {
+      playStepAnimation(currentStep);
     });
   }
 
@@ -497,7 +1183,8 @@ document.addEventListener("DOMContentLoaded", () => {
   faqTriggers.forEach(trigger => {
     trigger.addEventListener("click", () => {
       const row = trigger.parentElement;
-      row.classList.toggle("open");
+      const isOpen = row.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   });
 });
