@@ -1187,4 +1187,43 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   });
+
+  // Mobile Hamburger Navigation Drawer
+  const btnMobileMenu = document.getElementById("btnMobileMenu");
+  const mobileNavDrawer = document.getElementById("mobileNavMenu");
+  if (btnMobileMenu && mobileNavDrawer) {
+    const toggleMobileMenu = (forceState) => {
+      const isCurrentlyOpen = mobileNavDrawer.classList.contains("open");
+      const nextState = forceState !== undefined ? forceState : !isCurrentlyOpen;
+      mobileNavDrawer.classList.toggle("open", nextState);
+      btnMobileMenu.classList.toggle("active", nextState);
+      btnMobileMenu.setAttribute("aria-expanded", nextState ? "true" : "false");
+      mobileNavDrawer.setAttribute("aria-hidden", nextState ? "false" : "true");
+      document.body.style.overflow = nextState ? "hidden" : "";
+    };
+
+    btnMobileMenu.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    mobileNavDrawer.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        toggleMobileMenu(false);
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileNavDrawer.classList.contains("open")) {
+        toggleMobileMenu(false);
+      }
+    });
+
+    // Close when tapping outside drawer
+    document.addEventListener("click", (e) => {
+      if (mobileNavDrawer.classList.contains("open") && !mobileNavDrawer.contains(e.target) && !btnMobileMenu.contains(e.target)) {
+        toggleMobileMenu(false);
+      }
+    });
+  }
 });

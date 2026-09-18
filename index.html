@@ -156,8 +156,28 @@
         </ul>
       </nav>
 
-      <div>
-        <a href="#panduan-claude" class="btn btn-yellow btn-sm">Mulai Panduan</a>
+      <div class="navbar-actions">
+        <a href="#panduan-claude" class="btn btn-yellow btn-sm nav-cta-desktop">Mulai Panduan</a>
+        <button id="btnMobileMenu" class="btn-mobile-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobileNavMenu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavMenu" class="mobile-nav-drawer" role="navigation" aria-label="Menu Seluler" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#panduan-claude" class="mobile-nav-link">Panduan Claude.ai</a></li>
+        <li><a href="#berkas-unduhan" class="mobile-nav-link">Berkas Unduhan</a></li>
+        <li><a href="#fokus-telaah" class="mobile-nav-link">Fokus Telaah</a></li>
+        <li><a href="#perbandingan" class="mobile-nav-link">Contoh Naskah</a></li>
+        <li><a href="#tanya-jawab" class="mobile-nav-link">Tanya Jawab</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <a href="#panduan-claude" class="btn btn-yellow btn-block mobile-cta-btn">Mulai Panduan Sekarang</a>
+        <a href="https://github.com/NandaAddi/audit-skripsi-um" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-block" style="margin-top: 0.65rem;">Repositori GitHub</a>
       </div>
     </div>
   </header>
