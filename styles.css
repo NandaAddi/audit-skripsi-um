@@ -1386,6 +1386,8 @@ h1, h2, h3, h4, h5 {
   padding: 0.65rem 0.55rem;
   border-radius: var(--radius-sm);
   border: none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
   background: transparent;
   font-family: var(--font-sans);
   font-weight: 600;
@@ -1406,7 +1408,7 @@ h1, h2, h3, h4, h5 {
   background-color: var(--bg-surface);
   color: var(--navy-primary);
   box-shadow: var(--shadow-subtle);
-  border-top: 2px solid var(--um-periwinkle);
+  border-top-color: var(--um-periwinkle);
 }
 
 .simulator-body {
@@ -1421,6 +1423,12 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid var(--divider);
+}
+
+.sim-instruction-content {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sim-instruction-content .tag {
@@ -1442,7 +1450,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .sim-action-area {
+  margin-top: auto;
   margin-bottom: 1.5rem;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
 }
 
 /* Numbered Steps List for Simulator */
@@ -1640,10 +1652,14 @@ h1, h2, h3, h4, h5 {
 
 .window-content-area {
   padding: 1.5rem;
-  min-height: 400px;
+  height: 440px;
+  min-height: 440px;
+  max-height: 440px;
+  overflow-y: auto;
+  scrollbar-width: thin;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #ffffff;
 }
 
@@ -2426,6 +2442,7 @@ h1, h2, h3, h4, h5 {
 
 .infografis-img-wrap {
   width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--navy-dark);
@@ -2434,7 +2451,7 @@ h1, h2, h3, h4, h5 {
 
 .infografis-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
@@ -2460,6 +2477,15 @@ h1, h2, h3, h4, h5 {
   overflow: hidden;
   box-shadow: 0 4px 14px rgba(0, 30, 82, 0.08);
   background: #001233;
+  width: 100%;
+}
+
+.persona-wrap-sidang {
+  aspect-ratio: 4 / 3;
+}
+
+.persona-wrap-audit {
+  aspect-ratio: 1 / 1;
 }
 
 .persona-feature-img {
@@ -2509,6 +2535,13 @@ html, body {
   .sim-instruction-col {
     border-right: none;
     border-bottom: 1px solid var(--divider);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sim-instruction-content {
+    min-height: 300px;
   }
   .points-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2716,6 +2749,12 @@ html, body {
     padding: 0.45rem 0.85rem;
     font-size: 0.75rem;
     border-radius: var(--radius-sm);
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+  }
+
+  .sim-nav-btn.active {
+    border-top-color: var(--um-periwinkle);
   }
 
   .btn-tour-play {
@@ -2727,6 +2766,16 @@ html, body {
 
   .sim-instruction-col {
     padding: 1.25rem 1rem;
+    min-height: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sim-instruction-content {
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
   }
 
   .sim-instruction-content h3 {
@@ -2737,12 +2786,26 @@ html, body {
   .sim-instruction-content p {
     font-size: 0.875rem;
     line-height: 1.6;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .sim-steps-list {
+    gap: 0.55rem;
+    margin-bottom: 0.85rem;
   }
 
   .sim-steps-list li {
     font-size: 0.825rem;
+    line-height: 1.45;
     padding-left: 1.85rem;
+  }
+
+  .sim-action-area {
+    margin-top: auto;
+    margin-bottom: 0;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
   }
 
   .sim-nav-controls {
@@ -2781,8 +2844,58 @@ html, body {
   }
 
   .window-content-area {
-    padding: 0.85rem 0.65rem;
-    min-height: 300px;
+    padding: 0.85rem 0.75rem;
+    height: 360px;
+    min-height: 360px;
+    max-height: 360px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .mockup-sidebar-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    height: auto;
+  }
+
+  .mockup-sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .mockup-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mockup-menu-item {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .mockup-dialog-box {
+    padding: 0.85rem;
+  }
+
+  .prompt-preview-text {
+    min-height: 3.5rem;
+  }
+
+  .card-top-row h6 {
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mockup-chat-bubble {
@@ -2828,6 +2941,12 @@ html, body {
 
   .comparison-grid {
     grid-template-columns: 1fr;
+    min-height: 520px;
+  }
+
+  .count-num,
+  #heroScoreNum {
+    font-variant-numeric: tabular-nums;
   }
 
   .col-before {

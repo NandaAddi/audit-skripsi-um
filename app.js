@@ -144,12 +144,12 @@ const CLAUDE_GUIDE_STEPS = {
   },
   3: {
     badge: "Langkah 03 dari 05",
-    title: "Unggah 5 Berkas Acuan Terpisah ke Knowledge",
+    title: "Unggah 5 Berkas Pedoman ke Knowledge",
     desc: `
       <ol class="sim-steps-list">
-        <li><strong>Unduh 5 Berkas Terpisah:</strong> Unduh kelima berkas Markdown acuan (Buku Pedoman, Rubrik 8 Dimensi, Kamus Kata Baku, Skala Nilai Sidang, dan Pedoman Artikel) di bawah ini. Masing-masing berkas sengaja dipisahkan agar pemetaan konteks analisis Claude menjadi spesifik dan jelas.</li>
-        <li><strong>Buka Project Knowledge:</strong> Pada ruang kerja Project Claude Anda, temukan panel <strong>Project Knowledge</strong> lalu klik <strong>Add content / Files</strong>.</li>
-        <li><strong>Unggah Kelima Berkas:</strong> Masukkan atau seret kelima berkas <code>.md</code> tersebut. Claude akan mengindeks masing-masing berkas sebagai dasar evaluasi naskah Anda.</li>
+        <li><strong>Unduh 5 Berkas Acuan:</strong> Unduh kelima berkas Markdown resmi UM pada seksi unduhan di bawah.</li>
+        <li><strong>Buka Project Knowledge:</strong> Pada panel kanan Project Claude Anda, klik tombol <strong>Add content / Files</strong>.</li>
+        <li><strong>Unggah Kelima Berkas:</strong> Masukkan kelima berkas <code>.md</code> tersebut agar Claude mengindeks seluruh pedoman.</li>
       </ol>
     `,
     actionType: "download_separate",
@@ -233,9 +233,9 @@ const CLAUDE_GUIDE_STEPS = {
     title: "Unggah Draf / Berkas Naskah Skripsi Anda",
     desc: `
       <ol class="sim-steps-list">
-        <li><strong>Siapkan Berkas Naskah:</strong> Gunakan draf naskah skripsi Anda dalam format <code>.docx</code> (Microsoft Word) atau <code>.pdf</code>.</li>
-        <li><strong>Rekomendasi Unggah per Bab:</strong> Sangat dianjurkan menelaah naskah bab demi bab (misal Bab I atau Proposal Bab I–III) agar telaah logika dan rujukan mendalam tanpa batasan panjang teks.</li>
-        <li><strong>Lampirkan ke Chat:</strong> Klik ikon lampiran klip kertas (📎) di kolom percakapan Claude atau seret (drag-and-drop) berkas naskah Anda ke dalam ruang kerja.</li>
+        <li><strong>Siapkan Berkas Naskah:</strong> Gunakan format <code>.docx</code> (Microsoft Word) atau <code>.pdf</code>.</li>
+        <li><strong>Rekomendasi per Bab:</strong> Telaah bab demi bab (misal Bab I atau Proposal) untuk evaluasi mendalam.</li>
+        <li><strong>Lampirkan ke Chat:</strong> Klik ikon klip kertas (📎) atau seret berkas draf Anda ke ruang percakapan.</li>
       </ol>
     `,
     actionType: "draft_tips",
@@ -286,9 +286,9 @@ const CLAUDE_GUIDE_STEPS = {
     title: "Mulai Chat & Jalankan Perintah Telaah",
     desc: `
       <ol class="sim-steps-list">
-        <li><strong>Buka Chat:</strong> Klik tombol <strong>Start chat</strong> di dalam project Claude Anda.</li>
-        <li><strong>Ketik Perintah Telaah:</strong> Klik salah satu tombol perintah cepat di bawah untuk menyalin perintah (misal <code>/audit</code> atau <code>/sidang</code>) bersama berkas draf yang sudah terlampir.</li>
-        <li><strong>Terima Masukan Seketika:</strong> Claude akan membedah naskah Anda sesuai Pedoman UM 2017 dan menyajikan laporan kelayakan ilmiah.</li>
+        <li><strong>Buka Chat:</strong> Klik tombol <strong>Start chat</strong> di dalam Project Claude Anda.</li>
+        <li><strong>Ketik Perintah Telaah:</strong> Klik salah satu tombol perintah cepat di bawah (seperti <code>/audit</code> atau <code>/sidang</code>).</li>
+        <li><strong>Evaluasi Mandiri:</strong> Claude membedah naskah Anda sesuai Pedoman UM 2017 dan menyajikan laporan kelayakan.</li>
       </ol>
     `,
     actionType: "chips",
@@ -815,24 +815,17 @@ function renderGuideStep(stepNum) {
       }
     } else if (step.actionType === "download_separate") {
       actionAreaEl.innerHTML = `
-        <div class="quick-chips-wrap">
-          <span class="chips-label">Unduh 5 berkas acuan terpisah (.md):</span>
-          <div class="quick-chips-grid">
-            <a href="Pedoman-Penulisan-Karya-Ilmiah-2017.md" download class="quick-chip">1. Buku Pedoman UM (.md)</a>
-            <a href="rubrik-audit-um2017.md" download class="quick-chip">2. Rubrik 8 Dimensi (.md)</a>
-            <a href="kamus-tata-bahasa-ilmiah.md" download class="quick-chip">3. Kamus Kata Baku (.md)</a>
-            <a href="skala-penilaian-sidang-um.md" download class="quick-chip">4. Skala Sidang (.md)</a>
-            <a href="panduan-artikel-jurnal-um.md" download class="quick-chip">5. Pedoman Artikel (.md)</a>
-          </div>
-        </div>
+        <a href="#berkas-unduhan" class="btn btn-navy btn-sm" style="width: 100%; justify-content: center;">
+          Pusat Unduhan 5 Berkas Pedoman UM (.md) ↓
+        </a>
       `;
     } else if (step.actionType === "draft_tips") {
       actionAreaEl.innerHTML = `
         <div class="quick-chips-wrap">
           <span class="chips-label">Pilihan Cepat Penyiapan Draf:</span>
           <div class="quick-chips-grid">
-            <button class="quick-chip" id="chipCopyFilename" data-text="Skripsi_S1_UM_Bab1_Pendahuluan.docx">📋 Salin Format Nama File</button>
-            <button class="quick-chip" id="chipCopyBabPrompt" data-text="/audit Bab I: Mohon telaah keselarasan latar belakang masalah, kesenjangan empiris, dan proporsi 80% rujukan jurnal.">💬 Salin Perintah Telaah Bab I</button>
+            <button class="quick-chip" id="chipCopyFilename" data-text="Skripsi_S1_UM_Bab1_Pendahuluan.docx">Salin Nama Berkas</button>
+            <button class="quick-chip" id="chipCopyBabPrompt" data-text="/audit Bab I: Mohon telaah keselarasan latar belakang masalah, kesenjangan empiris, dan proporsi 80% rujukan jurnal.">Salin Prompt Bab I</button>
           </div>
         </div>
       `;
@@ -860,10 +853,10 @@ function renderGuideStep(stepNum) {
         <div class="quick-chips-wrap">
           <span class="chips-label">Klik untuk menyalin perintah siap pakai:</span>
           <div class="quick-chips-grid">
-            <button class="quick-chip" data-cmd="/audit Bab 1 [tempel draf naskah latar belakang]">/audit Bab 1</button>
-            <button class="quick-chip" data-cmd="/sidang Simulasi Ujian Sidang Skripsi">/sidang</button>
-            <button class="quick-chip" data-cmd="/bimbingan [tempel alinea untuk diperbaiki]">/bimbingan</button>
-            <button class="quick-chip" data-cmd="/cek-rujukan [tempel daftar rujukan]">/cek-rujukan</button>
+            <button class="quick-chip" data-cmd="/audit Bab 1">/audit Bab 1</button>
+            <button class="quick-chip" data-cmd="/sidang">/sidang</button>
+            <button class="quick-chip" data-cmd="/bimbingan">/bimbingan</button>
+            <button class="quick-chip" data-cmd="/cek-rujukan">/cek-rujukan</button>
           </div>
         </div>
       `;
