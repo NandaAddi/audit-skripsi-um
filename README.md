@@ -3,23 +3,23 @@
 <img src="assets/img/banner-utama.png" alt="Audit Skripsi UM — AI Companion Banner" width="100%" />
 <br><br>
 
-# 🎓 Audit Skripsi UM — AI Companion & Simulasi Sidang Skripsi
+# Audit Skripsi UM — AI Companion & Simulasi Sidang Skripsi
 
 **Sistem Audit Akademik Cerdas, Bimbingan Rekonstruksi Kalimat, dan Simulasi Sidang Dosen "Killer" Berstandar Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (UM) 2017 (Edisi Keenam)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Website](https://img.shields.io/badge/Website-audit--skripsi--um.webenzelabs.id-001E52.svg?logo=google-chrome&logoColor=FEDC00)](https://audit-skripsi-um.webenzelabs.id)
+[![Website](https://img.shields.io/badge/Website-audit--skripsi--um.webenzelabs.id-001E52.svg)](https://audit-skripsi-um.webenzelabs.id)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen.svg)](https://www.python.org/)
 [![Standards](https://img.shields.io/badge/Standard-Pedoman_UM_2017_(Edisi_6)-orange.svg)](Pedoman-Penulisan-Karya-Ilmiah-2017.md)
-[![Platform](https://img.shields.io/badge/Platform-Claude.ai%20%7C%20Claude%20Code%20%7C%20Antigravity-purple.svg)](#-3-jalur-akses-mahasiswa)
+[![Platform](https://img.shields.io/badge/Platform-Claude.ai%20%7C%20Claude%20Code%20%7C%20Antigravity-purple.svg)](#3-jalur-akses-mahasiswa)
 
-[🌐 Buka Website](https://audit-skripsi-um.webenzelabs.id) • [Panduan Cepat](#-3-jalur-akses-mahasiswa) • [Fitur Utama](#-fitur-unggulan) • [Perintah Cepat](#-daftar-perintah-interaktif) • [Toolkit Otomasi Python](#-toolkit-otomasi-python-offline) • [Kontribusi](CONTRIBUTING.md)
+[Buka Website](https://audit-skripsi-um.webenzelabs.id) • [Panduan Cepat](#3-jalur-akses-mahasiswa) • [Fitur Utama](#fitur-unggulan) • [Perintah Cepat](#daftar-perintah-interaktif) • [Toolkit Otomasi Python](#toolkit-otomasi-python-offline) • [Kontribusi](CONTRIBUTING.md)
 
 </div>
 
 ---
 
-## 📌 Mengapa Repositori Ini Dibuat?
+## Mengapa Repositori Ini Dibuat?
 
 Banyak mahasiswa tingkat akhir mengalami revisi berulang kali atau kesulitan saat ujian sidang skripsi karena:
 1. **Benang Merah Putus:** Rumusan masalah tidak terjawab oleh metode, kajian teori tidak mendukung variabel, dan simpulan mengulang teori.
@@ -29,7 +29,7 @@ Banyak mahasiswa tingkat akhir mengalami revisi berulang kali atau kesulitan saa
 
 Repositori ini hadir sebagai **sarana belajar mandiri** untuk membantu mahasiswa mendeteksi kelemahan naskah sejak dini, merekonstruksi kalimat ilmiah secara terstandar, dan melatih mental menjawab pertanyaan dosen penguji sebelum maju ke ruang sidang yang sesungguhnya.
 
-### 🗺️ Infografis Alur Penelaahan & Simulasi Sidang
+### Infografis Alur Penelaahan & Simulasi Sidang
 
 <p align="center">
   <a href="assets/img/infografis-alur-kerja.png" target="_blank">
@@ -39,7 +39,7 @@ Repositori ini hadir sebagai **sarana belajar mandiri** untuk membantu mahasiswa
 
 ---
 
-## ⚡ 3 Jalur Akses Mahasiswa
+## 3 Jalur Akses Mahasiswa
 
 Pilih cara yang paling mudah sesuai kenyamanan Anda:
 
@@ -50,14 +50,14 @@ Pilih cara yang paling mudah sesuai kenyamanan Anda:
                                          │
          ┌───────────────────────────────┼───────────────────────────────┐
          ▼                               ▼                               ▼
-  🌐 JALUR A (WEB)               🤖 JALUR B (AGENT)              💻 JALUR C (CLI)
+  JALUR A (WEB)                  JALUR B (AGENT)                 JALUR C (CLI)
   Claude.ai Projects             Antigravity / Claude Code        Terminal Offline
   (Tanpa Koding/Install)         (Auto-Install 1-Klik)            (Python Tanpa Install)
 ```
 
 ---
 
-### 🌐 Jalur A: Claude.ai Projects (Web — Paling Mudah)
+### Jalur A: Claude.ai Projects (Web — Paling Mudah)
 *Cocok untuk mahasiswa yang ingin langsung copy-paste di browser tanpa menginstall software.*
 
 1. Buka [claude.ai](https://claude.ai) dan pilih menu **Projects** ➔ **Create Project**.
@@ -71,7 +71,7 @@ Pilih cara yang paling mudah sesuai kenyamanan Anda:
 
 ---
 
-### 🤖 Jalur B: Antigravity IDE & Claude Code (AI Agent)
+### Jalur B: Antigravity IDE & Claude Code (AI Agent)
 *Cocok untuk pengguna IDE AI modern dengan skill otomatis.*
 
 1. Clone repositori ini ke komputer Anda:
@@ -92,7 +92,7 @@ Pilih cara yang paling mudah sesuai kenyamanan Anda:
 
 ---
 
-### 💻 Jalur C: CLI Python Mandiri (Offline & Cepat)
+### Jalur C: CLI Python Mandiri (Offline & Cepat)
 *Dapat dijalankan langsung di terminal tanpa koneksi internet dan tanpa dependensi pihak ketiga (menggunakan library bawaan Python).*
 
 Jalankan audit teknis terpadu pada berkas draf naskah Anda (`.docx`, `.md`, atau `.txt`):
@@ -102,11 +102,11 @@ python skills/audit-skripsi/scripts/audit_cli.py "path/ke/naskah.docx" --stage s
 
 ---
 
-## 🌟 Fitur Unggulan
+## Fitur Unggulan
 
 ### 1. Persona Ganda: Dosen Killer vs Bimbingan Konstruktif
-- 🔴 **Mode Sidang Killer (`/sidang`):** Memerankan dosen penguji senior UM (*Prof. Dr. Evaluator, M.Pd.*). Menguji benang merah secara dingin, menyerang cacat logika per ronde, dan menerbitkan **Kartu Nilai Sidang resmi UM** di akhir ujian.
-- 🟢 **Mode Bimbingan Edukatif (`/bimbingan`):** Memerankan dosen pembimbing (*Dr. Pembimbing Solutif, M.Pd.*). Menyajikan perbaikan kalimat ramah dengan **Formula 4-Bagian Rekonstruksi Ilmiah**.
+- **Mode Sidang Killer (`/sidang`):** Memerankan dosen penguji senior UM (*Prof. Dr. Evaluator, M.Pd.*). Menguji benang merah secara dingin, menyerang cacat logika per ronde, dan menerbitkan **Kartu Nilai Sidang resmi UM** di akhir ujian.
+- **Mode Bimbingan Edukatif (`/bimbingan`):** Memerankan dosen pembimbing (*Dr. Pembimbing Solutif, M.Pd.*). Menyajikan perbaikan kalimat ramah dengan **Formula 4-Bagian Rekonstruksi Ilmiah**.
 
 <p align="center">
   <a href="assets/img/fitur-simulasi-sidang.png" target="_blank">
@@ -128,10 +128,10 @@ python skills/audit-skripsi/scripts/audit_cli.py "path/ke/naskah.docx" --stage s
 ### 3. Formula 4-Bagian Rekonstruksi Kalimat Ilmiah
 Setiap kritik naskah tidak sekadar memberi komentar umum, melainkan diformulasikan ke dalam 4 bagian:
 ```markdown
-1. 📝 [Kutipan Kalimat Teks Asli Mahasiswa]
-   ❌ Cacat Logika / Kaidah : [Penjelasan kaidah akademik yang dilanggar]
-   📐 Formula Rekonstruksi  : [Rumus logika penyusunan kalimat ilmiah]
-   ✏️ Contoh Perbaikan      : "[Draf kalimat siap pakai yang telah direvisi]"
+1. [Kutipan Kalimat Teks Asli Mahasiswa]
+   Cacat Logika / Kaidah : [Penjelasan kaidah akademik yang dilanggar]
+   Formula Rekonstruksi  : [Rumus logika penyusunan kalimat ilmiah]
+   Contoh Perbaikan      : "[Draf kalimat siap pakai yang telah direvisi]"
 ```
 
 ### 4. Skala Penilaian Sidang & Scorecard Resmi UM
@@ -141,7 +141,7 @@ Mengadopsi sistem nilai mutu Universitas Negeri Malang:
 
 ---
 
-## 💬 Daftar Perintah Interaktif
+## Daftar Perintah Interaktif
 
 Gunakan kata kunci perintah berikut di dalam sesi chat Anda:
 
@@ -156,7 +156,7 @@ Gunakan kata kunci perintah berikut di dalam sesi chat Anda:
 
 ---
 
-## 🛠️ Toolkit Otomasi Python (Offline)
+## Toolkit Otomasi Python (Offline)
 
 Toolkit ini berada di dalam folder [`skills/audit-skripsi/scripts/`](skills/audit-skripsi/scripts/):
 
@@ -180,29 +180,29 @@ python skills/audit-skripsi/scripts/extract_naskah.py "naskah.docx" "output.md"
 ### Cuplikan Output CLI:
 ```text
 =================================================================
-📋 HASIL DIAGNOSTIK OTOMATIS: contoh_bab1_kuantitatif.md
-🎓 Jenjang: S1 | Tahap: SKRIPSI
-⚖️ Skor Kelayakan Teknis: 81.2/100 ➔ [LAYAK TEKNIS]
+HASIL DIAGNOSTIK OTOMATIS: contoh_bab1_kuantitatif.md
+Jenjang: S1 | Tahap: SKRIPSI
+Skor Kelayakan Teknis: 81.2/100 -> [LAYAK TEKNIS]
 =================================================================
 
 ### 1. Metrik Kepatuhan Rujukan (UM 2017)
 - Total Rujukan Terdaftar: 8 entri
-- Kemutakhiran (10 Th Terakhir): 7/8 (87.5%) ✅
-- Keprimeran (Jurnal/Riset): 6/8 (75.0%) ❌ Target: ≥80%
+- Kemutakhiran (10 Th Terakhir): 7/8 (87.5%) [Sesuai]
+- Keprimeran (Jurnal/Riset): 6/8 (75.0%) [Perlu Revisi: Target >=80%]
 - Sitasi dalam Teks: 3 sitasi
 
 ### 2. Metrik Kepatuhan Bahasa & Format
-- Panjang Kata Inti: 384 kata (Batas: 15,000 kata) ✅
-- Kata Non-Baku Terdeteksi: 0 kasus ✅
-- Konjungsi Awal Kalimat: 1 kasus ❌ (Sehingga di awal kalimat)
-- Frasa Subjektif Persona: 1 kasus ❌ ("Peneliti melakukan")
-- Desimal Tanda Titik (.): 2 angka ❌ (wajib koma `,` dalam bahasa Indonesia)
+- Panjang Kata Inti: 384 kata (Batas: 15,000 kata) [Sesuai]
+- Kata Non-Baku Terdeteksi: 0 kasus [Sesuai]
+- Konjungsi Awal Kalimat: 1 kasus [Perlu Revisi: 'Sehingga' di awal kalimat]
+- Frasa Subjektif Persona: 1 kasus [Perlu Revisi: 'Peneliti melakukan']
+- Desimal Tanda Titik (.): 2 angka [Perlu Revisi: wajib koma ',' dalam bahasa Indonesia]
 =================================================================
 ```
 
 ---
 
-## 📁 Struktur Repositori
+## Struktur Repositori
 
 ```text
 audit-skripsi-um/
@@ -235,7 +235,7 @@ audit-skripsi-um/
 
 ---
 
-## ⚖️ Penafian Akademik (Academic Disclaimer)
+## Penafian Akademik (Academic Disclaimer)
 
 > [!IMPORTANT]
 > **PENAFIAN PENTING:**
@@ -246,6 +246,6 @@ audit-skripsi-um/
 
 ---
 
-## 📄 Lisensi
+## Lisensi
 
 Didistribusikan di bawah lisensi terbuka **MIT License**. Silakan gunakan, pelajari, kembangkan, dan bagikan untuk kemajuan dunia akademik. Lihat berkas [LICENSE](LICENSE) untuk ketentuan lengkap.
