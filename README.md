@@ -1,5 +1,8 @@
 <div align="center">
 
+<img src="og-image.png" alt="Audit Skripsi UM — AI Companion Banner" width="100%" />
+<br><br>
+
 # 🎓 Audit Skripsi UM — AI Companion & Simulasi Sidang Skripsi
 
 **Sistem Audit Akademik Cerdas, Bimbingan Rekonstruksi Kalimat, dan Simulasi Sidang Dosen "Killer" Berstandar Pedoman Penulisan Karya Ilmiah Universitas Negeri Malang (UM) 2017 (Edisi Keenam)**
